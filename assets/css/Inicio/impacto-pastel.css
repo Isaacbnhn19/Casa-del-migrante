@@ -1,0 +1,289 @@
+/* =========================================================
+   impacto-pastel.css
+   - SOLO estilos para la gráfica pastel en impacto.html
+   - No altera tu template global
+========================================================= */
+
+.badgeBtn{
+  cursor:pointer;
+  border: 0;
+}
+
+/* Grid general */
+.pieGrid{
+  display:grid;
+  grid-template-columns: 1.05fr .95fr;
+  gap: 14px;
+}
+
+@media (max-width: 980px){
+  .pieGrid{ grid-template-columns: 1fr; }
+}
+
+/* Columna izquierda */
+.pieCard{
+  border-radius: 18px;
+  border: 1px solid rgba(20,36,70,.10);
+  background: rgba(255,255,255,.62);
+  box-shadow: 0 18px 42px rgba(20,36,70,.08);
+  padding: 14px;
+}
+
+.pieCanvasWrap{
+  border-radius: 16px;
+  border: 1px solid rgba(20,36,70,.10);
+  background:
+    radial-gradient(420px 180px at 15% 0%, rgba(179,204,246,.36), transparent 60%),
+    radial-gradient(420px 180px at 85% 0%, rgba(173,132,227,.20), transparent 60%),
+    rgba(255,255,255,.78);
+  padding: 12px;
+  overflow:hidden;
+}
+
+.pieDetail{
+  margin-top: 12px;
+  border-radius: 16px;
+  border: 1px solid rgba(20,36,70,.10);
+  background: rgba(255,255,255,.74);
+  padding: 12px;
+}
+
+.pieDetailTop{
+  display:flex;
+  gap: 10px;
+  align-items:flex-start;
+}
+
+.pieSwatch{
+  width: 14px;
+  height: 14px;
+  border-radius: 6px;
+  border: 1px solid rgba(20,36,70,.12);
+  margin-top: 4px;
+  flex: 0 0 auto;
+}
+
+.pieDetailTitle{
+  font-weight: 1000;
+  color: rgba(20,36,70,.92);
+}
+
+.pieDetailSub{
+  font-weight: 900;
+  color: rgba(20,36,70,.68);
+  font-size: 12px;
+  margin-top: 2px;
+}
+
+.pieDetailValue{
+  margin-top: 10px;
+  font-weight: 1000;
+  font-size: 26px;
+  letter-spacing: .2px;
+  color: rgba(20,36,70,.92);
+}
+
+.pieDetailHint{
+  font-weight: 900;
+  color: rgba(20,36,70,.62);
+  font-size: 12px;
+}
+
+/* Columna derecha: listado */
+.pieListCard{
+  border-radius: 18px;
+  border: 1px solid rgba(20,36,70,.10);
+  background:
+    radial-gradient(520px 220px at 20% 0%, rgba(179,204,246,.22), transparent 60%),
+    radial-gradient(520px 220px at 85% 0%, rgba(173,132,227,.16), transparent 60%),
+    rgba(255,255,255,.60);
+  box-shadow: 0 18px 42px rgba(20,36,70,.08);
+  padding: 14px;
+}
+
+.pieListHead{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap: 10px;
+  flex-wrap:wrap;
+}
+
+.pieList{
+  margin-top: 12px;
+  display:flex;
+  flex-direction:column;
+  gap: 10px;
+}
+
+/* Tarjeta de categoría */
+.pieItem{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap: 12px;
+
+  padding: 12px 12px;
+  border-radius: 16px;
+  border: 1px solid rgba(20,36,70,.10);
+  background: rgba(255,255,255,.72);
+  box-shadow: 0 14px 34px rgba(20,36,70,.07);
+
+  cursor:pointer;
+  transition: transform .15s ease, background .15s ease, border-color .15s ease, box-shadow .15s ease;
+}
+
+.pieItem:hover{
+  transform: translateY(-2px);
+  background: rgba(179,204,246,.22);
+  border-color: rgba(173,132,227,.18);
+  box-shadow: 0 18px 42px rgba(20,36,70,.10);
+}
+
+.pieItem.active{
+  background: rgba(173,132,227,.14);
+  border-color: rgba(173,132,227,.22);
+}
+
+.pieLeft{
+  display:flex;
+  align-items:center;
+  gap: 10px;
+  min-width:0;
+}
+
+.pieDot{
+  width: 12px;
+  height: 12px;
+  border-radius: 6px;
+  border: 1px solid rgba(20,36,70,.12);
+  flex:0 0 auto;
+}
+
+.pieName{
+  font-weight: 1000;
+  color: rgba(20,36,70,.92);
+  white-space: nowrap;
+  overflow:hidden;
+  text-overflow: ellipsis;
+}
+
+.pieVal{
+  font-weight: 1000;
+  color: rgba(20,36,70,.90);
+  white-space: nowrap;
+}
+
+/* Dato destacado */
+.highlightRow{
+  display:flex;
+  align-items:center;
+  gap: 12px;
+  padding: 14px;
+  border-radius: 18px;
+  border: 1px solid rgba(20,36,70,.10);
+  background: rgba(255,255,255,.72);
+  box-shadow: 0 18px 42px rgba(20,36,70,.08);
+}
+
+.highlightIcon{
+  width: 52px;
+  height: 52px;
+  border-radius: 18px;
+  display:grid;
+  place-items:center;
+
+  background: rgba(179,204,246,.22);
+  border: 1px solid rgba(173,132,227,.18);
+  color: rgba(20,36,70,.92);
+  flex:0 0 auto;
+}
+
+.highlightTitle{
+  font-weight: 1000;
+  font-size: 34px;
+  color: rgba(20,36,70,.92);
+  letter-spacing: .2px;
+  line-height: 1;
+}
+
+.highlightText{
+  margin-top: 4px;
+  font-weight: 1000;
+  color: rgba(20,36,70,.90);
+}
+
+.highlightHint{
+  margin-top: 2px;
+  font-weight: 900;
+  color: rgba(20,36,70,.62);
+  font-size: 12px;
+}
+
+/* Modal */
+.pieModal[hidden]{ display:none; }
+
+.pieModal{
+  position: fixed;
+  inset: 0;
+  z-index: 200;
+  display:grid;
+  place-items:center;
+  padding: 18px;
+}
+
+.pieModalBackdrop{
+  position:absolute;
+  inset:0;
+  background: rgba(7,11,22,.35);
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+}
+
+.pieModalCard{
+  position:relative;
+  width: min(920px, 96vw);
+  border-radius: 20px;
+  border: 1px solid rgba(255,255,255,.55);
+  background:
+    radial-gradient(900px 300px at 20% 0%, rgba(179,204,246,.26), transparent 60%),
+    radial-gradient(900px 300px at 85% 0%, rgba(173,132,227,.18), transparent 60%),
+    rgba(255,255,255,.92);
+  box-shadow: 0 30px 90px rgba(20,36,70,.24);
+  overflow:hidden;
+}
+
+.pieModalTop{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap: 10px;
+  padding: 12px 12px;
+  border-bottom: 1px solid rgba(20,36,70,.10);
+}
+
+.pieModalTitle{
+  font-weight: 1000;
+  color: rgba(20,36,70,.92);
+  display:flex;
+  align-items:center;
+  gap: 10px;
+}
+
+.pieModalBody{
+  padding: 14px;
+  display:grid;
+  place-items:center;
+}
+
+.pieModalBody img{
+  width: 100%;
+  height: auto;
+  border-radius: 16px;
+  border: 1px solid rgba(20,36,70,.10);
+  background: rgba(255,255,255,.80);
+}
+
+.pieModalFoot{
+  padding: 10px 14px 14px;
+}

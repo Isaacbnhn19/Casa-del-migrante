@@ -1,0 +1,213 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Panel | Donaciones</title>
+
+  <!-- FavIcon (logo) -->
+  <link rel="icon" type="image/png" href="assets/img/logo.png" />
+
+  <!-- Iconos -->
+  <link rel="preconnect" href="https://cdnjs.cloudflare.com" />
+  <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+
+  <!-- ===== CSS GLOBAL (igual que tu sitio) ===== -->
+  <link rel="stylesheet" href="assets/css/Inicio/variables.css">
+  <link rel="stylesheet" href="assets/css/Inicio/base.css">
+  <link rel="stylesheet" href="assets/css/Inicio/cards.css">
+  <link rel="stylesheet" href="assets/css/Inicio/header-nav.css">
+  <link rel="stylesheet" href="assets/css/Inicio/footer.css">
+  <link rel="stylesheet" href="assets/css/Inicio/scrollbar.css">
+
+  <!-- ===== CSS ESPECÍFICO DASHBOARD ===== -->
+  <link rel="stylesheet" href="assets/css/Admin/dashboard.css">
+
+  <!-- jsPDF + AutoTable (para exportar PDF con tabla) -->
+  <script src="https://cdn.jsdelivr.net/npm/jspdf@2.5.1/dist/jspdf.umd.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/jspdf-autotable@3.8.2/dist/jspdf.plugin.autotable.min.js"></script>
+</head>
+
+<body>
+
+  <!-- ===== LOGO SUPERIOR (sin menú) ===== -->
+  <div class="logoTop" id="inicio">
+    <div class="logoTopInner">
+      <a class="brand brandStatic" href="index.html" aria-label="Volver al sitio">
+        <img src="assets/img/logo.png" alt="Casa del Migrante" class="brandLogo">
+        <div class="brandText">
+          <div class="brandTop">Casa del Migrante</div>
+          <div class="brandBottom">Mons. Guillermo Ranzahuer González</div>
+        </div>
+      </a>
+    </div>
+  </div>
+
+  <!-- ===== TOP BAR ADMIN (compacta) ===== -->
+  <header class="adminTopBar">
+    <div class="adminTopInner">
+      <div class="adminTitle">
+        <div class="adminBadge"><i class="fa-solid fa-shield-heart"></i></div>
+        <div class="adminTitleText">
+          <div class="adminKicker">Panel de control</div>
+          <div class="adminH">Donaciones registradas</div>
+        </div>
+      </div>
+
+      <div class="adminActions">
+        <a class="btnGhostMini" href="index.html">
+          <i class="fa-solid fa-house"></i> Inicio
+        </a>
+
+        <button id="logoutBtn" class="btnPrimaryMini" type="button">
+          <i class="fa-solid fa-right-from-bracket"></i> Cerrar sesión
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- ===== CONTENIDO ===== -->
+  <main class="pageWrap">
+    <section class="mxWrap">
+
+      <div class="sectionCard">
+        <div class="dashHead">
+          <div>
+            <h1 class="secTitle" style="margin:0;">Control de donaciones</h1>
+            <p class="secText" style="margin:6px 0 0;">
+              Panel interno para el administrador: métricas, filtros y exportación.
+            </p>
+          </div>
+
+          <div class="dashHeadBtns">
+            <button id="refreshBtn" class="btnSoft" type="button">
+              <i class="fa-solid fa-rotate"></i> Actualizar
+            </button>
+
+            <button id="exportPdfBtn" class="btnSoft" type="button">
+              <i class="fa-solid fa-file-pdf"></i> Exportar PDF
+            </button>
+
+            <button id="exportXlsBtn" class="btnSoft" type="button">
+              <i class="fa-solid fa-file-excel"></i> Exportar Excel
+            </button>
+          </div>
+        </div>
+
+        <!-- MÉTRICAS -->
+        <div class="dashStats">
+          <div class="dashStatCard">
+            <div class="dashStatTop">
+              <i class="fa-solid fa-hand-holding-heart"></i>
+              <span>Total de donaciones</span>
+            </div>
+            <div class="dashStatValue" id="statTotalDonations">—</div>
+            <div class="dashStatHint">Conteo total en la BD</div>
+          </div>
+
+          <div class="dashStatCard">
+            <div class="dashStatTop">
+              <i class="fa-solid fa-sack-dollar"></i>
+              <span>Total recaudado (MXN)</span>
+            </div>
+            <div class="dashStatValue" id="statTotalAmount">—</div>
+            <div class="dashStatHint">Suma total en pesos</div>
+          </div>
+
+          <div class="dashStatCard">
+            <div class="dashStatTop">
+              <i class="fa-solid fa-calendar-day"></i>
+              <span>Fecha</span>
+            </div>
+            <div class="dashStatValue" id="statDate">—</div>
+            <div class="dashStatHint">Local</div>
+          </div>
+
+          <div class="dashStatCard">
+            <div class="dashStatTop">
+              <i class="fa-solid fa-clock"></i>
+              <span>Hora</span>
+            </div>
+            <div class="dashStatValue" id="statTime">—</div>
+            <div class="dashStatHint">Local</div>
+          </div>
+        </div>
+
+        <!-- FILTROS -->
+        <div class="filterBar">
+          <div class="filterLeft">
+            <div class="filterGroup">
+              <label class="filterLabel" for="monthFilter">Mes</label>
+              <select id="monthFilter" class="filterSelect">
+                <option value="all" selected>Todos</option>
+                <option value="0">Enero</option>
+                <option value="1">Febrero</option>
+                <option value="2">Marzo</option>
+                <option value="3">Abril</option>
+                <option value="4">Mayo</option>
+                <option value="5">Junio</option>
+                <option value="6">Julio</option>
+                <option value="7">Agosto</option>
+                <option value="8">Septiembre</option>
+                <option value="9">Octubre</option>
+                <option value="10">Noviembre</option>
+                <option value="11">Diciembre</option>
+              </select>
+            </div>
+
+            <div class="filterGroup">
+              <label class="filterLabel" for="dateFrom">Desde</label>
+              <input id="dateFrom" class="filterInput" type="date" />
+            </div>
+
+            <div class="filterGroup">
+              <label class="filterLabel" for="dateTo">Hasta</label>
+              <input id="dateTo" class="filterInput" type="date" />
+            </div>
+          </div>
+
+          <div class="filterRight">
+            <button id="applyFilterBtn" class="btnSoft" type="button">
+              <i class="fa-solid fa-filter"></i> Aplicar
+            </button>
+
+            <button id="clearFilterBtn" class="btnGhostSoft" type="button">
+              <i class="fa-solid fa-broom"></i> Limpiar
+            </button>
+          </div>
+        </div>
+
+        <!-- TABLA -->
+        <div class="tableShell">
+          <table class="dashTable" aria-label="Tabla de donaciones">
+            <thead>
+              <tr>
+                <th>ID</th>
+                <th>Nombre</th>
+                <th>Teléfono</th>
+                <th>Correo</th>
+                <th>Monto</th>
+                <th>Método</th>
+                <th>Mensaje</th>
+                <th>Fecha</th>
+              </tr>
+            </thead>
+            <tbody id="rows"></tbody>
+          </table>
+        </div>
+
+        <p id="status" class="dashStatus"></p>
+
+        <p class="dashNote">
+          *Datos internos — Casa del Migrante Mons. Guillermo Ranzahuer González.
+        </p>
+      </div>
+
+    </section>
+  </main>
+
+  <!-- ===== JS ===== -->
+  <script src="assets/js/dashboard.js"></script>
+</body>
+</html>

@@ -1,0 +1,7 @@
+/* 99-helpers.css
+   Helpers pequeños reutilizables.
+*/
+
+.countUp, .countUpInline{
+  font-variant-numeric: tabular-nums;
+}

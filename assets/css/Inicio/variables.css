@@ -1,0 +1,47 @@
+/* 00-variables.css
+   TEMA CLARO + VIVO (institucional, no oscuro)
+   - Más color en superficies, bordes y acentos secundarios.
+   - Mantiene morado/azul como identidad.
+*/
+
+:root{
+  /* Fondo */
+  --bg:  #F6FBFF;   /* cielo muy claro */
+  --bg2: #F2F7FF;   /* azul pálido */
+
+  /* Superficies (cards) */
+  --surface:  rgba(255,255,255,.88);
+  --surface2: rgba(255,255,255,.72);
+
+  /* Color suave para “tintas” de cards (para dar vida sin oscurecer) */
+  --tintA: rgba(179,204,246,.22);  /* azul suave */
+  --tintB: rgba(206,238,225,.24);  /* menta suave */
+  --tintC: rgba(173,132,227,.18);  /* lavanda suave */
+  --tintD: rgba(255, 198, 179,.18);/* coral suave */
+
+  /* Bordes y sombras */
+  --border: rgba(20,36,70,.14);
+  --shadow: 0 18px 45px rgba(20, 36, 70, .10);
+
+  /* Texto */
+  --text: #142446;                 /* azul tinta */
+  --muted: rgba(20,36,70,.72);
+
+  /* Para iconos/textos fuertes */
+  --ink: rgba(20,36,70,.94);
+  --inkSoft: rgba(20,36,70,.62);
+
+  /* Acentos */
+  --primary:#AD84E3;               /* lavanda (no tocar identidad) */
+  --primary2:#B3CCF6;              /* azul suave */
+  --mint:#2FBF9B;                  /* menta más “viva” para highlights */
+  --coral:#FF7A59;                 /* coral institucional (solo detalles) */
+
+  /* Hover */
+  --hover: rgba(173,132,227,.14);
+  --hover2: rgba(179,204,246,.18);
+
+  /* Header sticky glass */
+  --glass: rgba(255,255,255,.62);
+  --glassBorder: rgba(20,36,70,.12);
+}

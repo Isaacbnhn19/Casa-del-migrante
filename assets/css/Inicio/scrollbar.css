@@ -1,0 +1,25 @@
+/* 90-scrollbar.css
+   Scrollbar clara + viva (sin oscuro).
+*/
+
+::-webkit-scrollbar{ width: 10px; height: 10px; }
+
+::-webkit-scrollbar-track{
+  background: rgba(255,255,255,.70);
+  border-left: 1px solid rgba(20,36,70,.10);
+}
+
+::-webkit-scrollbar-thumb{
+  background: linear-gradient(180deg, rgba(46,168,255,.85), rgba(173,132,227,.85));
+  border-radius: 10px;
+  border: 2px solid rgba(255,255,255,.78);
+}
+
+::-webkit-scrollbar-thumb:hover{
+  background: linear-gradient(180deg, rgba(255,122,89,.75), rgba(173,132,227,.85));
+}
+
+*{
+  scrollbar-width: thin;
+  scrollbar-color: rgba(173,132,227,.85) rgba(255,255,255,.70);
+}

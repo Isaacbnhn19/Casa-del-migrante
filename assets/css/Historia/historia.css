@@ -1,0 +1,152 @@
+/* Historia/historia.css
+   Estilos SOLO para contenido de historia.html
+   (No toca header/nav/footer ni tema global)
+*/
+
+/* Contenedor general */
+.pageWrap{
+  padding: 20px 16px 40px;
+}
+
+/* Hero superior (título Conócenos) */
+.pageHero{
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 18px 0 10px;
+}
+
+.pageHeroInner{
+  border-radius: 22px;
+  padding: 22px;
+  border: 1px solid rgba(20,36,70,.10);
+  background:
+    radial-gradient(900px 220px at 12% 0%, var(--tintA), transparent 55%),
+    radial-gradient(900px 220px at 88% 0%, var(--tintC), transparent 55%),
+    rgba(255,255,255,.70);
+  box-shadow: 0 18px 40px rgba(20,36,70,.08);
+}
+
+/* Etiqueta pequeña */
+.pageKicker{
+  margin: 0;
+  font-weight: 1000;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+  font-size: 12px;
+  color: rgba(20,36,70,.65);
+}
+
+/* Título grande */
+.pageTitle{
+  margin: 10px 0 0;
+  font-weight: 1000;
+  line-height: 1.05;
+  font-size: clamp(34px, 4vw, 52px);
+  color: var(--text);
+}
+
+/* Texto introductorio */
+.pageLead{
+  margin-top: 12px;
+  max-width: 78ch;
+  color: var(--muted);
+  line-height: 1.65;
+  font-size: 16px;
+}
+
+/* Ancho alineado al sitio */
+.mxWrap{
+  max-width: 1200px;
+  margin: 14px auto 0;
+}
+
+/* Bloques internos */
+.block{
+  padding: 6px 4px;
+}
+
+.blockTitle{
+  margin: 0 0 10px 0;
+  font-size: 20px;
+  font-weight: 1000;
+  color: rgba(20,36,70,.92);
+  display:flex;
+  align-items:center;
+  gap: 10px;
+}
+
+.blockTitle i{
+  color: rgba(20,36,70,.85);
+}
+
+.blockText{
+  margin: 0;
+  color: var(--muted);
+  line-height: 1.75;
+  font-size: 15.5px;
+}
+
+/* Separador elegante */
+.divider{
+  height: 1px;
+  margin: 18px 0;
+  background: rgba(20,36,70,.10);
+}
+
+/* Lista de valores */
+.valuesList{
+  margin: 0;
+  padding-left: 18px;
+  display:grid;
+  gap: 10px;
+  color: var(--muted);
+}
+
+.valuesList strong{
+  color: rgba(20,36,70,.92);
+}
+
+.blockNote{
+  margin-top: 14px;
+  color: rgba(20,36,70,.55);
+  font-size: 12px;
+}
+
+/* Responsive */
+@media (max-width: 820px){
+  .pageHeroInner{ padding: 18px; }
+  .blockTitle{ font-size: 18px; }
+}
+/* Texto más suave para correos / notas dentro de listas */
+.mutedInline{
+  color: rgba(20,36,70,.70);
+}
+
+/* ===== Código de Ética – Marcadores visuales ===== */
+
+.ethicTitle{
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+/* Círculo institucional */
+.ethicDot{
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+
+  /* Color institucional elegante */
+  background: linear-gradient(
+    135deg,
+    var(--primary),
+    var(--primary2)
+  );
+
+  /* Sutil relieve */
+  box-shadow:
+    0 0 0 4px rgba(173,132,227,.18),
+    0 4px 10px rgba(20,36,70,.25);
+
+  flex-shrink: 0;
+}

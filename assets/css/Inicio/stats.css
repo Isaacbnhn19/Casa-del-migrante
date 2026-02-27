@@ -1,0 +1,125 @@
+/* 70-stats.css
+   Estadísticas: grid superior + split (países y perfiles) + barras + compact.
+*/
+
+.statsGrid{
+  display:grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 12px;
+}
+
+@media (max-width: 980px){
+  .statsGrid{ grid-template-columns: repeat(2, 1fr); }
+}
+@media (max-width: 520px){
+  .statsGrid{ grid-template-columns: 1fr; }
+}
+
+.statCard{
+  border-radius: 18px;
+  border: 1px solid rgba(20,36,70,.12);
+
+  background:
+    radial-gradient(240px 180px at 20% 10%, var(--tintA), transparent 60%),
+    rgba(255,255,255,.78);
+
+  padding: 14px;
+  box-shadow: 0 12px 28px rgba(20, 36, 70, .08);
+}
+.statLabel{ color: var(--inkSoft); font-weight: 900; font-size: 12px; }
+.statValue{ margin-top: 8px; font-weight: 1000; font-size: 26px; letter-spacing: .2px; color: var(--ink); }
+.statHint{ margin-top: 6px; color: var(--muted); font-size: 12px; }
+
+/* Split */
+.splitRow{
+  display:grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+}
+
+@media (max-width: 980px){
+  .splitRow{ grid-template-columns: 1fr; }
+}
+
+.splitCard{
+  border-radius: 18px;
+  border: 1px solid rgba(20,36,70,.12);
+
+  background:
+    radial-gradient(260px 180px at 15% 10%, var(--tintC), transparent 60%),
+    rgba(255,255,255,.78);
+
+  padding: 14px;
+  box-shadow: 0 12px 28px rgba(20, 36, 70, .08);
+}
+
+.splitTitle{ font-weight: 1000; font-size: 16px; margin:0 0 12px 0; color: var(--ink); }
+
+
+/* Barras */
+.barRow{
+  display:grid;
+  grid-template-columns: 90px 1fr 50px;
+  gap: 10px;
+  align-items:center;
+  margin: 10px 0;
+}
+
+.barLabel{ color: var(--ink); font-weight: 900; font-size: 12px; }
+.barValue{ color: var(--inkSoft); font-weight: 900; font-size: 12px; text-align:right; }
+
+/* Track claro */
+.barTrack{
+  height: 10px;
+  border-radius: 999px;
+  background: rgba(20,36,70,.08);
+  border: 1px solid rgba(26, 56, 110, .10);
+  overflow:hidden;
+}
+
+.barFill{
+  height: 100%;
+  width: 0; /* importante: JS anima de 0 → porcentaje */
+  border-radius: 999px;
+  background: linear-gradient(135deg, rgba(173,132,227,.95), rgba(179,204,246,.92));
+}
+
+/* Pills */
+.pillGrid{
+  display:grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 10px;
+}
+
+.pill{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  gap: 10px;
+  padding: 10px 12px;
+  border-radius: 14px;
+  border: 1px solid rgba(173,132,227,.18);
+  background: rgba(173,132,227,.10);
+  color: var(--ink);
+  font-weight: 900;
+  font-size: 13px;
+}
+
+.pill strong{ font-size: 14px; }
+
+.smallNote{
+  margin-top: 12px;
+  color: var(--muted);
+  font-size: 12px;
+  line-height: 1.5;
+}
+
+/* Compact: países más corto */
+.splitCard.compact{
+  padding: 12px;
+  align-self: flex-start;
+  margin-top: 50px;
+}
+
+.splitCard.compact .barRow{ margin: 8px 0; }
+.splitCard.compact .splitTitle{ margin-bottom: 10px; }

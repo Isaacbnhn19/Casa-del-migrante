@@ -1,0 +1,100 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Iniciar sesión | Casa del Migrante</title>
+
+  <!-- FavIcon (logo) -->
+  <link rel="icon" type="image/png" href="assets/img/logo.png" />
+
+  <!-- Iconos (Font Awesome) -->
+  <link rel="preconnect" href="https://cdnjs.cloudflare.com" />
+  <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+
+  <!-- ===== CSS GLOBAL (mantiene colores/estilo del sitio) ===== -->
+  <link rel="stylesheet" href="assets/css/Inicio/variables.css">
+  <link rel="stylesheet" href="assets/css/Inicio/base.css">
+  <link rel="stylesheet" href="assets/css/Inicio/cards.css">
+  <link rel="stylesheet" href="assets/css/Inicio/scrollbar.css">
+  <link rel="stylesheet" href="assets/css/Inicio/header-nav.css">
+
+  <!-- ===== CSS LOGIN ===== -->
+  <link rel="stylesheet" href="assets/css/Login/login.css">
+
+  <!-- Ajuste: en esta página NO queremos layout tipo “dos columnas” -->
+  <style>
+    /* centra y simplifica el layout solo para login */
+    .loginShell{ grid-template-columns: 1fr !important; max-width: 520px !important; }
+    .loginBrand{ display:none !important; } /* por si existiera */
+    .loginCard{ padding: 22px !important; }
+    .loginPage{ min-height: calc(100vh - 120px); }
+  </style>
+</head>
+
+<body>
+
+  <!-- ===== LOGO SUPERIOR (SOLO logo + texto, sin menú) ===== -->
+  <div class="logoTop" id="inicio">
+    <div class="logoTopInner">
+      <a class="brand brandStatic" href="index.html" style="text-decoration:none;">
+        <img src="assets/img/logo.png" alt="Casa del Migrante" class="brandLogo">
+        <div class="brandText">
+          <div class="brandTop">Casa del Migrante</div>
+          <div class="brandBottom">Mons. Guillermo Ranzahuer González</div>
+        </div>
+      </a>
+    </div>
+  </div>
+  
+  <!-- ===== LOGIN CENTRADO ===== -->
+  <main class="loginPage">
+    <div class="loginShell">
+
+      <section class="loginCard" aria-label="Formulario de inicio de sesión">
+        <div class="loginHead">
+          <div class="loginKicker">Administrador</div>
+          <h1 class="loginTitle">Iniciar sesión</h1>
+          <p class="loginLead">
+            Ingresa tus credenciales para acceder al panel.
+          </p>
+        </div>
+
+        <!-- IDs estándar para tu JS -->
+        <form class="loginForm" id="loginForm" autocomplete="on">
+          <div class="fGroup">
+            <label class="fLabel" for="username">Usuario</label>
+            <input class="fInput" id="username" name="username" type="text"
+                   placeholder="Ej: admin" required />
+          </div>
+
+          <div class="fGroup">
+            <label class="fLabel" for="password">Contraseña</label>
+            <input class="fInput" id="password" name="password" type="password"
+                   placeholder="••••••••" required />
+          </div>
+
+          <div class="loginActions">
+            <div class="loginHint" id="loginMsg" aria-live="polite"></div>
+
+            <button class="btnLoginPrimary" type="submit">
+              <i class="fa-solid fa-right-to-bracket"></i>
+              Entrar
+            </button>
+          </div>
+        </form>
+      </section>
+
+    </div>
+  </main>
+
+<!-- ✅ BOTÓN VOLVER (AQUÍ ES EL LUGAR CORRECTO) -->
+  <div class="backHomeWrap">
+    <a href="index.html" class="backHomeBtn">Volver al inicio</a>
+  </div>
+
+  <!-- JS (si ya tienes lógica de login, déjala) -->
+  <script src="assets/js/login.js"></script>
+</body>
+</html>

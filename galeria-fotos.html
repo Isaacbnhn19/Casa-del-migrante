@@ -1,0 +1,242 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Galería de fotos | Casa del Migrante</title>
+
+  <!-- FavIcon (logo) -->
+  <link rel="icon" type="image/png" href="assets/img/logo.png" />
+
+  <!-- Iconos (Font Awesome) -->
+  <link rel="preconnect" href="https://cdnjs.cloudflare.com" />
+  <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+
+  <!-- ===== CSS GLOBAL (igual que tus otras páginas) ===== -->
+  <link rel="stylesheet" href="assets/css/Inicio/variables.css">
+  <link rel="stylesheet" href="assets/css/Inicio/base.css">
+  <link rel="stylesheet" href="assets/css/Inicio/cards.css">
+  <link rel="stylesheet" href="assets/css/Inicio/header-nav.css">
+  <link rel="stylesheet" href="assets/css/Inicio/footer.css">
+  <link rel="stylesheet" href="assets/css/Inicio/scrollbar.css">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@500;700;800;900&family=Playfair+Display:wght@600;700;800&family=Poppins:wght@600;700;800&display=swap" rel="stylesheet">
+
+
+  <!-- Layout/tipografías reutilizadas -->
+  <link rel="stylesheet" href="assets/css/Historia/historia.css">
+
+  <!-- ===== CSS ESPECÍFICO GALERÍA ===== -->
+  <link rel="stylesheet" href="assets/css/Actualidad/galeria-fotos.css">
+</head>
+
+<body>
+
+  <!-- ===== LOGO SUPERIOR ===== -->
+  <div class="logoTop" id="inicio">
+    <div class="logoTopInner">
+      <a class="brand brandStatic" href="index.html">
+        <img src="assets/img/logo.png" alt="Casa del Migrante" class="brandLogo">
+        <div class="brandText">
+          <div class="brandTop">Casa del Migrante</div>
+          <div class="brandBottom">Mons. Guillermo Ranzahuer González</div>
+        </div>
+      </a>
+    </div>
+  </div>
+
+  <!-- ===== BARRA STICKY (sin login) ===== -->
+  <header class="siteHeaderBar">
+    <div class="headerInner">
+      <nav class="navMain" aria-label="Navegación principal">
+        <ul class="navList">
+
+          <!-- CONÓCENOS -->
+          <li class="navItem hasDrop">
+            <a class="navLink" href="#" aria-haspopup="true">Conócenos</a>
+            <div class="navDrop" role="menu" aria-label="Submenú Conócenos">
+              <a role="menuitem" href="historia.html">Historia</a>
+              <a role="menuitem" href="quienes-somos.html">¿Quiénes somos?</a>
+              <a role="menuitem" href="equipo.html">Nuestro equipo</a>
+              <a role="menuitem" href="codigo-etica.html">Código de ética</a>
+              <a role="menuitem" href="impacto.html">Impacto</a>
+            </div>
+          </li>
+
+          <!-- AYÚDANOS A AYUDAR -->
+          <li class="navItem hasDrop">
+            <a class="navLink" href="#" aria-haspopup="true">Ayúdanos a ayudar</a>
+            <div class="navDrop" role="menu" aria-label="Submenú Ayúdanos a ayudar">
+              <a role="menuitem" href="participacion-solidaria.html">Participación solidaria</a>
+              <a role="menuitem" href="voluntariado.html">Voluntariado</a>
+            </div>
+          </li>
+
+          <!-- ACTUALIDAD -->
+          <li class="navItem hasDrop">
+            <a class="navLink" href="#" aria-haspopup="true">Actualidad</a>
+            <div class="navDrop" role="menu" aria-label="Submenú Actualidad">
+              <a role="menuitem" href="galeria-fotos.html">Galería de fotos</a>
+              <a role="menuitem" href="galeria-videos.html">Galería de videos</a>
+            </div>
+          </li>
+
+          <!-- CONTACTO -->
+          <li class="navItem">
+            <a class="navLink" href="contacto.html">Contacto</a>
+          </li>
+
+          <!-- DONAR -->
+          <li class="navItem">
+            <a class="navLink navLinkStrong" href="donar.html">Donar</a>
+          </li>
+
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <!-- ===== CONTENIDO ===== -->
+  <main class="pageWrap">
+
+    <!-- HERO -->
+    <section class="pageHero">
+      <div class="pageHeroInner">
+        <p class="pageKicker">ACTUALIDAD</p>
+        <h1 class="pageTitle">Galería de fotos 📸</h1>
+        <p class="pageLead">
+          Selecciona una sección para explorar las imágenes. Da clic en cualquier foto para verla en grande y usar zoom.
+        </p>
+      </div>
+    </section>
+
+    <section class="mxWrap">
+
+      <!-- CONTENEDOR PRINCIPAL -->
+      <div class="sectionCard galleryCard">
+
+        <!-- Barra superior: Secciones (chips) + contador -->
+        <div class="galleryTop">
+          <div class="galleryTabs" id="galleryTabs" aria-label="Secciones de galería">
+            <!-- JS inserta los botones de secciones -->
+          </div>
+
+          <div class="galleryMeta">
+            <span class="badgeSoft" id="galleryCountBadge">
+              <i class="fa-solid fa-images"></i> 0 fotos
+            </span>
+          </div>
+        </div>
+
+        
+
+        <!-- Grid de fotos -->
+        <div class="galleryGrid" id="galleryGrid" aria-label="Cuadrícula de fotos">
+          <!-- JS inserta thumbnails -->
+        </div>
+
+      </div>
+    </section>
+  </main>
+
+  <!-- ===== LIGHTBOX (MODAL) ===== -->
+  <div class="lbOverlay" id="lbOverlay" aria-hidden="true">
+    <div class="lbModal" role="dialog" aria-modal="true" aria-label="Visor de imágenes">
+
+      <!-- Header del lightbox -->
+      <div class="lbTop">
+        <div class="lbTitle" id="lbTitle">
+          <i class="fa-solid fa-image"></i>
+          <span>Foto</span>
+        </div>
+
+        <button class="lbClose" id="lbClose" type="button" aria-label="Cerrar">
+          <i class="fa-solid fa-xmark"></i>
+        </button>
+      </div>
+
+      <!-- Imagen -->
+      <div class="lbStage" id="lbStage">
+        <img id="lbImg" alt="Imagen ampliada">
+      </div>
+
+      <!-- Controles -->
+      <div class="lbControls">
+        <div class="lbNav">
+          <button class="lbBtn" id="lbPrev" type="button" aria-label="Anterior">
+            <i class="fa-solid fa-arrow-left"></i>
+          </button>
+
+          <button class="lbBtn" id="lbNext" type="button" aria-label="Siguiente">
+            <i class="fa-solid fa-arrow-right"></i>
+          </button>
+        </div>
+
+        <div class="lbZoom">
+          <button class="lbBtn" id="lbZoomOut" type="button" aria-label="Zoom menos">
+            <i class="fa-solid fa-minus"></i>
+          </button>
+
+          <button class="lbBtn" id="lbZoomReset" type="button" aria-label="Reset zoom">
+            <i class="fa-solid fa-rotate-left"></i>
+          </button>
+
+          <button class="lbBtn" id="lbZoomIn" type="button" aria-label="Zoom más">
+            <i class="fa-solid fa-plus"></i>
+          </button>
+
+          <span class="lbZoomLabel" id="lbZoomLabel">100%</span>
+        </div>
+      </div>
+
+      <div class="lbFooterHint">
+        <span><i class="fa-solid fa-keyboard"></i> Esc · ← → · + − · 0</span>
+      </div>
+    </div>
+  </div>
+
+<!-- ✅ BOTÓN VOLVER (AQUÍ ES EL LUGAR CORRECTO) -->
+  <div class="backHomeWrap">
+    <a href="index.html" class="backHomeBtn">Volver al inicio</a>
+  </div>
+
+  <!-- ===== FOOTER ===== -->
+  <footer class="siteFooter">
+    <div class="footerInner">
+
+      <div>
+        <div class="footBrand">
+          <img src="assets/img/logo.png" alt="Casa del Migrante" class="footLogo">
+          <div>
+            <div class="footTitle">Casa del Migrante</div>
+            <div class="footSub">Mons. Guillermo Ranzahuer González</div>
+          </div>
+        </div>
+        <div class="footCopy">
+          © <span id="year"></span> Casa del Migrante. Todos los derechos reservados.
+        </div>
+      </div>
+
+      <div class="footSocial">
+        <div class="footSocialTitle">Redes sociales</div>
+        <div class="footSocialLinks">
+          <!-- Facebook (ejemplo) -->
+          <a class="socialBtn" href="#" aria-label="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
+          <!-- Instagram (ejemplo) -->
+          <a class="socialBtn" href="#" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+          <!-- WhatsApp (ejemplo) -->
+          <a class="socialBtn" href="#" aria-label="WhatsApp"><i class="fa-brands fa-whatsapp"></i></a>
+        </div>
+      </div>
+
+    </div>
+  </footer>
+
+  <!-- ===== JS ===== -->
+  <script src="assets/js/shared.js"></script>
+  <script src="assets/js/galeria-fotos.js"></script>
+</body>
+</html>

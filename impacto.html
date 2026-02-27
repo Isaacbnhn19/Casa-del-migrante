@@ -1,0 +1,267 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Impacto | Casa del Migrante</title>
+
+  <!-- FavIcon (logo) -->
+  <link rel="icon" type="image/png" href="assets/img/logo.png" />
+
+  <!-- Iconos (Font Awesome) -->
+  <link rel="preconnect" href="https://cdnjs.cloudflare.com" />
+  <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+
+  <!-- ===== CSS GLOBAL ===== -->
+  <link rel="stylesheet" href="assets/css/Inicio/variables.css">
+  <link rel="stylesheet" href="assets/css/Inicio/base.css">
+  <link rel="stylesheet" href="assets/css/Inicio/cards.css">
+  <link rel="stylesheet" href="assets/css/Inicio/header-nav.css">
+  <link rel="stylesheet" href="assets/css/Inicio/footer.css">
+  <link rel="stylesheet" href="assets/css/Inicio/scrollbar.css">
+
+  <!-- Fuente (la misma que ya estás usando en las páginas) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@500;700;800;900&family=Playfair+Display:wght@600;700;800&family=Poppins:wght@600;700;800&display=swap" rel="stylesheet">
+
+  <!-- Reutilizada (layout hero/pageWrap) -->
+  <link rel="stylesheet" href="assets/css/Historia/historia.css">
+
+  <!-- ✅ CSS nuevo solo para esta gráfica -->
+  <link rel="stylesheet" href="assets/css/Inicio/impacto-pastel.css">
+</head>
+
+<body>
+
+  <!-- ===== LOGO SUPERIOR ===== -->
+  <div class="logoTop" id="inicio">
+    <div class="logoTopInner">
+      <a class="brand brandStatic" href="index.html">
+        <img src="assets/img/logo.png" alt="Casa del Migrante" class="brandLogo">
+        <div class="brandText">
+          <div class="brandTop">Casa del Migrante</div>
+          <div class="brandBottom">Mons. Guillermo Ranzahuer González</div>
+        </div>
+      </a>
+    </div>
+  </div>
+
+  <!-- ===== BARRA STICKY (sin login) ===== -->
+  <header class="siteHeaderBar">
+    <div class="headerInner">
+
+      <nav class="navMain" aria-label="Navegación principal">
+        <ul class="navList">
+
+          <!-- CONÓCENOS -->
+          <li class="navItem hasDrop">
+            <a class="navLink" href="#" aria-haspopup="true">Conócenos</a>
+            <div class="navDrop" role="menu" aria-label="Submenú Conócenos">
+              <a role="menuitem" href="historia.html">Historia</a>
+              <a role="menuitem" href="quienes-somos.html">¿Quiénes somos?</a>
+              <a role="menuitem" href="equipo.html">Nuestro equipo</a>
+              <a role="menuitem" href="codigo-etica.html">Código de ética</a>
+              <a role="menuitem" href="impacto.html">Impacto</a>
+            </div>
+          </li>
+
+          <!-- AYÚDANOS A AYUDAR -->
+          <li class="navItem hasDrop">
+            <a class="navLink" href="#" aria-haspopup="true">Ayúdanos a ayudar</a>
+            <div class="navDrop" role="menu" aria-label="Submenú Ayúdanos a ayudar">
+              <a role="menuitem" href="participacion-solidaria.html">Participación solidaria</a>
+              <a role="menuitem" href="voluntariado.html">Voluntariado</a>
+            </div>
+          </li>
+
+          <!-- ACTUALIDAD -->
+          <li class="navItem hasDrop">
+            <a class="navLink" href="#" aria-haspopup="true">Actualidad</a>
+            <div class="navDrop" role="menu" aria-label="Submenú Actualidad">
+              <a role="menuitem" href="galeria-fotos.html">Galería de fotos</a>
+              <a role="menuitem" href="galeria-videos.html">Galería de videos</a>
+            </div>
+          </li>
+
+          <!-- CONTACTO -->
+          <li class="navItem">
+            <a class="navLink" href="contacto.html">Contacto</a>
+          </li>
+
+          <!-- DONAR -->
+          <li class="navItem">
+            <a class="navLink navLinkStrong" href="donar.html">Donar</a>
+          </li>
+
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <!-- ===== CONTENIDO ===== -->
+  <main class="pageWrap">
+
+    <section class="pageHero">
+      <div class="pageHeroInner">
+        <p class="pageKicker">CONÓCENOS</p>
+        <h1 class="pageTitle">Impacto 2016–2025 💥</h1>
+        <p class="pageLead">
+          Distribución de atenciones brindadas (2016–2025). Pasa el cursor o haz clic para explorar.
+        </p>
+      </div>
+    </section>
+
+    <section class="mxWrap">
+
+      <!-- ===== BLOQUE PRINCIPAL: GRÁFICA PASTEL + LISTA ===== -->
+      <div class="sectionCard">
+        <div class="impactHead">
+          <div>
+            <h2 class="secTitle" style="margin:0;">Atenciones brindadas 2016–2025</h2>
+            <p class="secText" style="margin:6px 0 0;">
+              Interactivo: hover/clic para ver detalle. Puedes ampliar la gráfica.
+            </p>
+          </div>
+
+          <div class="impactTools">
+            <button class="badgeSoft badgeBtn" id="btnExpandPie" type="button">
+              <i class="fa-solid fa-magnifying-glass-plus"></i> Ampliar
+            </button>
+            <span class="badgeSoft"><i class="fa-solid fa-calendar"></i> 2016–2025</span>
+          </div>
+        </div>
+
+        <div class="pieGrid mt-6">
+          <!-- IZQ: Pie -->
+          <div class="pieCard">
+            <div class="pieCanvasWrap">
+              <canvas id="chartPie" height="260" aria-label="Gráfica de pastel de atenciones"></canvas>
+            </div>
+
+            <!-- Tarjeta detalle (se actualiza al click/hover) -->
+            <div class="pieDetail" id="pieDetail" aria-live="polite">
+              <div class="pieDetailTop">
+                <div class="pieSwatch" id="pieSwatch"></div>
+                <div>
+                  <div class="pieDetailTitle" id="pieTitle">Selecciona un segmento</div>
+                  <div class="pieDetailSub" id="pieSub">Pasa el cursor por la gráfica o haz clic en una categoría.</div>
+                </div>
+              </div>
+
+              <div class="pieDetailValue" id="pieValue">—</div>
+              <div class="pieDetailHint" id="pieHint">Total (2016–2025)</div>
+            </div>
+          </div>
+
+          <!-- DER: Lista de categorías estilo “cards” -->
+          <div class="pieListCard">
+            <div class="pieListHead">
+              <h3 class="splitTitle" style="margin:0;">Categorías</h3>
+              <span class="pillMini"><i class="fa-solid fa-hand-holding-heart"></i> 8 rubros</span>
+            </div>
+
+            <div class="pieList" id="pieList" aria-label="Listado de categorías"></div>
+
+            <div class="smallNote" style="margin-top:10px;">
+              Tip: haz clic en cualquier tarjeta para resaltar su segmento en la gráfica.
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- ===== DATO APARTE: 6,515 solicitudes (como pediste) ===== -->
+      <div class="sectionCard mt-6">
+        <div class="splitTop">
+          <div>
+            <h3 class="splitTitle" style="margin:0;">Dato destacado</h3>
+            <p class="secText" style="margin:6px 0 0;">
+              Solicitudes de refugio atendidas.
+            </p>
+          </div>
+          <span class="badgeSoft"><i class="fa-solid fa-shield-heart"></i> Refugio</span>
+        </div>
+
+        <div class="highlightRow mt-4">
+          <div class="highlightIcon">
+            <i class="fa-solid fa-file-signature"></i>
+          </div>
+          <div class="highlightBody">
+            <div class="highlightTitle">6,515</div>
+            <div class="highlightText">Solicitudes de refugio atendidas</div>
+            <div class="highlightHint">Periodo 2016–2025</div>
+          </div>
+        </div>
+      </div>
+
+    </section>
+  </main>
+
+  <!-- ===== MODAL (ampliar gráfica) ===== -->
+  <div class="pieModal" id="pieModal" hidden>
+    <div class="pieModalBackdrop" data-close="1"></div>
+    <div class="pieModalCard" role="dialog" aria-modal="true" aria-label="Gráfica ampliada">
+      <div class="pieModalTop">
+        <div class="pieModalTitle">
+          <i class="fa-solid fa-chart-pie"></i> Atenciones brindadas (2016–2025)
+        </div>
+        <button class="iconBtn" type="button" id="btnClosePie" aria-label="Cerrar">
+          <i class="fa-solid fa-xmark"></i>
+        </button>
+      </div>
+
+      <div class="pieModalBody">
+        <img id="pieImg" alt="Gráfica ampliada" />
+      </div>
+
+      <div class="pieModalFoot">
+        <span class="smallNote">Clic fuera o “Esc” para cerrar.</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- ✅ BOTÓN VOLVER (si ya lo tienes global en base.css, déjalo tal cual) -->
+  <div class="backHomeWrap">
+    <a href="index.html" class="backHomeBtn">Volver al inicio</a>
+  </div>
+
+  <!-- ===== FOOTER ===== -->
+  <footer class="siteFooter">
+    <div class="footerInner">
+
+      <div>
+        <div class="footBrand">
+          <img src="assets/img/logo.png" alt="Casa del Migrante" class="footLogo">
+          <div>
+            <div class="footTitle">Casa del Migrante</div>
+            <div class="footSub">Mons. Guillermo Ranzahuer González</div>
+          </div>
+        </div>
+        <div class="footCopy">
+          © <span id="year"></span> Casa del Migrante. Todos los derechos reservados.
+        </div>
+      </div>
+
+      <div class="footSocial">
+        <div class="footSocialTitle">Redes sociales</div>
+        <div class="footSocialLinks">
+          <a class="socialBtn" href="#" aria-label="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
+          <a class="socialBtn" href="#" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+          <a class="socialBtn" href="#" aria-label="WhatsApp"><i class="fa-brands fa-whatsapp"></i></a>
+        </div>
+      </div>
+
+    </div>
+  </footer>
+
+  <!-- JS global -->
+  <script src="assets/js/shared.js"></script>
+
+  <!-- Chart.js -->
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js"></script>
+
+  <!-- ✅ JS nuevo: pastel interactivo -->
+  <script src="assets/js/impacto-pastel.js"></script>
+</body>
+</html>

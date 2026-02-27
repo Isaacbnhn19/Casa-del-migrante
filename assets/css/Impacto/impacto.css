@@ -1,0 +1,253 @@
+/* assets/css/Impacto/impacto.css
+   Estilos específicos de la página Impacto (solo visual).
+   No cambia tu JS ni el estilo estructural del sitio.
+*/
+
+.mt-6{ margin-top: 14px; }
+
+/* ==============================
+   RESUMEN 2025 (más suave y con aire)
+================================ */
+.impactHead{
+  display:flex;
+  align-items:flex-start;
+  justify-content:space-between;
+  gap: 14px;
+  flex-wrap: wrap;
+}
+
+.impactTools{
+  display:flex;
+  gap: 10px;
+  flex-wrap: wrap;
+  align-items:center;
+}
+
+/* Ajuste: que el grid no se amontone */
+.sectionCard .impactStats{
+  margin-top: 14px;
+  gap: 14px;              /* ✅ más separación */
+}
+
+.impactStats .statCard{
+  border-radius: 18px;
+  border: 1px solid rgba(20,36,70,.14);
+  background:
+    radial-gradient(520px 220px at 10% 0%, rgba(179,204,246,.42), transparent 60%),
+    radial-gradient(520px 220px at 90% 0%, rgba(173,132,227,.20), transparent 60%),
+    rgba(255,255,255,.88);
+  box-shadow: 0 16px 44px rgba(20,36,70,.10);
+
+  padding: 16px 16px 14px; /* ✅ más “aire” */
+  min-height: 120px;       /* ✅ evita que se vean apretadas */
+  display:flex;
+  flex-direction: column;
+  justify-content: space-between;
+
+  transition: transform .15s ease, box-shadow .15s ease;
+}
+
+.impactStats .statCard:hover{
+  transform: translateY(-2px);
+  box-shadow: 0 22px 60px rgba(20,36,70,.14);
+}
+
+.impactStats .statLabel{
+  color: rgba(20,36,70,.78);
+  font-weight: 1000;
+  font-size: 12px;
+  letter-spacing: .03em;
+  text-transform: uppercase;
+}
+
+.impactStats .statValue{
+  color: rgba(20,36,70,.95);
+  font-size: 36px;         /* ✅ grande pero legible */
+  letter-spacing: .2px;
+  margin-top: 8px;
+  line-height: 1.05;
+}
+
+.impactStats .statHint{
+  color: rgba(20,36,70,.70);
+  font-size: 12px;
+  margin-top: 8px;
+  line-height: 1.4;
+}
+
+/* Responsive: evita “amontonado” en pantallas medianas */
+@media (max-width: 980px){
+  .impactStats .statCard{ min-height: 110px; }
+  .impactStats .statValue{ font-size: 32px; }
+}
+
+/* ==============================
+   SPLITS + CONTROLES (igual, pero refinado)
+================================ */
+.splitTop{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.splitControls{
+  display:flex;
+  gap: 10px;
+  align-items:center;
+  flex-wrap: wrap;
+}
+
+/* Toggle */
+.toggle{
+  display:flex;
+  align-items:center;
+  gap: 8px;
+  font-weight: 1000;
+  font-size: 12px;
+  color: rgba(20,36,70,.90);
+  background: rgba(255,255,255,.82);
+  border: 1px solid rgba(20,36,70,.14);
+  padding: 8px 10px;
+  border-radius: 999px;
+  box-shadow: 0 10px 26px rgba(20,36,70,.08);
+}
+
+.toggle input{ width: 16px; height: 16px; }
+
+/* Select */
+.selectMini{
+  padding: 8px 10px;
+  border-radius: 999px;
+  border: 1px solid rgba(20,36,70,.14);
+  background: rgba(255,255,255,.90);
+  color: rgba(20,36,70,.92);
+  font-weight: 1000;
+  font-size: 12px;
+  outline: none;
+  box-shadow: 0 10px 26px rgba(20,36,70,.08);
+}
+
+/* ==============================
+   CHART WRAP (no cambia la gráfica, solo marco)
+================================ */
+.chartWrap{
+  margin-top: 10px;
+  border-radius: 18px;
+  border: 1px solid rgba(20,36,70,.14);
+  background:
+    radial-gradient(520px 220px at 20% 0%, rgba(179,204,246,.38), transparent 60%),
+    radial-gradient(520px 220px at 85% 0%, rgba(173,132,227,.18), transparent 60%),
+    rgba(255,255,255,.90);
+  padding: 12px;
+  box-shadow: 0 16px 46px rgba(20,36,70,.10);
+}
+
+/* ==============================
+   TABLAS ELEGANTES (suaves, flotantes, institucionales)
+================================ */
+
+/* Contenedor flotante */
+.tableWrap{
+  margin-top: 12px;
+  border-radius: 18px;
+  border: 1px solid rgba(20,36,70,.14);
+  background: rgba(255,255,255,.90);
+  box-shadow: 0 16px 46px rgba(20,36,70,.10);
+  overflow: hidden;     /* ✅ bordes redondeados reales */
+}
+
+/* Tabla real */
+.impactTable{
+  width: 100%;
+  border-collapse: separate;
+  border-spacing: 0;
+}
+
+/* Header (suave, tipo “glass”) */
+.impactTable thead th{
+  text-align: left;
+  padding: 12px 14px;
+  font-size: 12px;
+  font-weight: 1000;
+  color: rgba(20,36,70,.92);
+  letter-spacing: .04em;
+  text-transform: uppercase;
+
+  background:
+    radial-gradient(520px 140px at 15% 0%, rgba(179,204,246,.45), transparent 60%),
+    radial-gradient(520px 140px at 85% 0%, rgba(173,132,227,.22), transparent 60%),
+    rgba(255,255,255,.88);
+
+  border-bottom: 1px solid rgba(20,36,70,.12);
+}
+
+/* Filas */
+.impactTable tbody td{
+  padding: 12px 14px;
+  font-size: 13px;
+  font-weight: 900;
+  color: rgba(20,36,70,.88);
+  border-bottom: 1px solid rgba(20,36,70,.08);
+}
+
+/* Zebra suave */
+.impactTable tbody tr:nth-child(odd){
+  background: rgba(179,204,246,.10);
+}
+.impactTable tbody tr:nth-child(even){
+  background: rgba(255,255,255,.92);
+}
+
+/* Hover elegante */
+.impactTable tbody tr:hover{
+  background: rgba(173,132,227,.14);
+}
+
+/* Columna total alineada */
+.impactTable td:last-child,
+.impactTable th:last-child{
+  text-align: right;
+  font-variant-numeric: tabular-nums;
+}
+
+/* Chip suave SOLO para el total (se ve “pro” sin ser excesivo) */
+.impactTable tbody td:last-child{
+  color: rgba(20,36,70,.95);
+}
+.impactTable tbody td:last-child > span{
+  display:inline-block;
+  padding: 6px 10px;
+  border-radius: 999px;
+  background: rgba(173,132,227,.14);
+  border: 1px solid rgba(173,132,227,.22);
+}
+
+/* ✅ Si tu JS no envuelve el total en <span>, lo hacemos con CSS */
+.impactTable tbody td:last-child{
+  position: relative;
+}
+.impactTable tbody td:last-child::before{
+  content:"";
+  position:absolute;
+  inset: 6px 6px;
+  border-radius: 999px;
+  background: rgba(173,132,227,.12);
+  border: 1px solid rgba(173,132,227,.18);
+  z-index: 0;
+}
+.impactTable tbody td:last-child{
+  padding-right: 18px;
+}
+.impactTable tbody td:last-child{
+  z-index: 1;
+}
+.impactTable tbody td:last-child{
+  background: transparent;
+}
+
+/* Responsive: tablas scroll horizontal si hace falta */
+.tableWrap{
+  overflow-x: auto;
+}

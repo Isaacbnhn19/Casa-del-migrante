@@ -1,0 +1,258 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Nuestro equipo | Casa del Migrante</title>
+
+  <link rel="icon" type="image/png" href="assets/img/logo.png" />
+
+  <!-- Iconos -->
+  <link rel="preconnect" href="https://cdnjs.cloudflare.com" />
+  <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+
+  <!-- ✅ FUENTES SOLO PARA ESTA PÁGINA
+       Menú: Inter
+       Marca (logo + nombre): Playfair Display
+       Títulos internos: Poppins
+  -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@500;700;800;900&family=Playfair+Display:wght@600;700;800&family=Poppins:wght@600;700;800&display=swap" rel="stylesheet">
+
+  <!-- ===== CSS GLOBAL (igual que tus otras páginas) ===== -->
+  <link rel="stylesheet" href="assets/css/Inicio/variables.css">
+  <link rel="stylesheet" href="assets/css/Inicio/base.css">
+  <link rel="stylesheet" href="assets/css/Inicio/cards.css">
+  <link rel="stylesheet" href="assets/css/Inicio/header-nav.css">
+  <link rel="stylesheet" href="assets/css/Inicio/footer.css">
+  <link rel="stylesheet" href="assets/css/Inicio/scrollbar.css">
+
+  <!-- Layout/tipografías reutilizadas -->
+  <link rel="stylesheet" href="assets/css/Historia/historia.css">
+
+  <!-- ✅ CSS SOLO DE EQUIPO (nuevo) -->
+  <link rel="stylesheet" href="assets/css/Historia/equipo.css">
+</head>
+
+<body class="pageEquipo">
+
+  <!-- ===== LOGO SUPERIOR ===== -->
+  <div class="logoTop" id="inicio">
+    <div class="logoTopInner">
+      <a class="brand brandStatic" href="index.html">
+        <img src="assets/img/logo.png" alt="Casa del Migrante" class="brandLogo">
+        <div class="brandText">
+          <div class="brandTop">Casa del Migrante</div>
+          <div class="brandBottom">Mons. Guillermo Ranzahuer González</div>
+        </div>
+      </a>
+    </div>
+  </div>
+
+  <!-- ===== BARRA STICKY (sin login) ===== -->
+  <header class="siteHeaderBar">
+    <div class="headerInner">
+      <nav class="navMain" aria-label="Navegación principal">
+        <ul class="navList">
+
+          <li class="navItem hasDrop">
+            <a class="navLink" href="#" aria-haspopup="true">Conócenos</a>
+            <div class="navDrop" role="menu" aria-label="Submenú Conócenos">
+              <a role="menuitem" href="historia.html">Historia</a>
+              <a role="menuitem" href="quienes-somos.html">¿Quiénes somos?</a>
+              <a role="menuitem" href="equipo.html">Nuestro equipo</a>
+              <a role="menuitem" href="codigo-etica.html">Código de ética</a>
+              <a role="menuitem" href="impacto.html">Impacto</a>
+            </div>
+          </li>
+
+          <li class="navItem hasDrop">
+            <a class="navLink" href="#" aria-haspopup="true">Ayúdanos a ayudar</a>
+            <div class="navDrop" role="menu" aria-label="Submenú Ayúdanos a ayudar">
+              <a role="menuitem" href="participacion-solidaria.html">Participación solidaria</a>
+              <a role="menuitem" href="voluntariado.html">Voluntariado</a>
+            </div>
+          </li>
+
+          <li class="navItem hasDrop">
+            <a class="navLink" href="#" aria-haspopup="true">Actualidad</a>
+            <div class="navDrop" role="menu" aria-label="Submenú Actualidad">
+              <a role="menuitem" href="galeria-fotos.html">Galería de fotos</a>
+              <a role="menuitem" href="galeria-videos.html">Galería de videos</a>
+            </div>
+          </li>
+
+          <li class="navItem">
+            <a class="navLink" href="contacto.html">Contacto</a>
+          </li>
+
+          <li class="navItem">
+            <a class="navLink navLinkStrong" href="donar.html">Donar</a>
+          </li>
+
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <!-- ===== CONTENIDO ===== -->
+  <main class="pageWrap">
+    <section class="pageHero">
+      <div class="pageHeroInner">
+        <p class="pageKicker">CONÓCENOS</p>
+        <h1 class="pageTitle">Nuestro equipo 🤝</h1>
+        <p class="pageLead">
+          Estructura organizacional y roles clave para la atención y acompañamiento.
+        </p>
+      </div>
+    </section>
+
+    <section class="mxWrap">
+
+      <!-- ✅ ORGANIGRAMA EN “DIAGRAMA” (no lista) -->
+      <div class="sectionCard">
+        <div class="impactHead">
+          <div>
+            <h2 class="secTitle" style="margin:0;">Organigrama</h2>
+          </div>
+          <span class="badgeSoft"><i class="fa-solid fa-sitemap"></i> Equipo</span>
+        </div>
+
+        <!--
+          IMPORTANTE:
+          - Aquí puedes cambiar nombres/correos sin tocar el CSS.
+          - Si ya tenías roles/nombres definidos, reemplaza el texto dentro de cada .orgNode
+        -->
+       <div class="orgChart" aria-label="Organigrama del equipo">
+
+  <!-- NIVEL 1 -->
+  <div class="orgLevel level1">
+    <article class="orgNode isTop">
+      <div class="orgIcon"><i class="fa-solid fa-user-tie"></i></div>
+      <div class="orgText">
+        <!-- PUESTO -->
+        <div class="orgRole">Dirección</div>
+        <!-- NOMBRE (pon el real que ya tenías) -->
+        <div class="orgName">Ramiro Baxin Ixtepan </div>
+      </div>
+    </article>
+  </div>
+
+  <div class="orgConnector"></div>
+
+  <!-- NIVEL 2 -->
+  <div class="orgLevel level2">
+    <article class="orgNode">
+      <div class="orgIcon"><i class="fa-solid fa-diagram-project"></i></div>
+      <div class="orgText">
+        <div class="orgRole">Coordinadora general</div>
+        <div class="orgName">Ma. del Rocío Hernández Lucho</div>
+      </div>
+    </article>
+
+    <article class="orgNode">
+      <div class="orgIcon"><i class="fa-solid fa-hand-holding-medical"></i></div>
+      <div class="orgText">
+        <div class="orgRole">Atención médica</div>
+        <div class="orgName">Nombre Apellido</div>
+      </div>
+    </article>
+
+    <article class="orgNode">
+      <div class="orgIcon"><i class="fa-solid fa-brain"></i></div>
+      <div class="orgText">
+        <div class="orgRole">Apoyo psicológico</div>
+        <div class="orgName">Nombre Apellido</div>
+      </div>
+    </article>
+  </div>
+
+  <div class="orgConnector"></div>
+
+  <!-- NIVEL 3 -->
+  <div class="orgLevel level3">
+    <article class="orgNode">
+      <div class="orgIcon"><i class="fa-solid fa-layer-group"></i></div>
+      <div class="orgText">
+        <div class="orgRole">Coordinadora de Áreas</div>
+        <div class="orgName">Keila Isui Garcia Hernández</div>
+      </div>
+    </article>
+
+    <article class="orgNode">
+      <div class="orgIcon"><i class="fa-solid fa-scale-balanced"></i></div>
+      <div class="orgText">
+        <div class="orgRole">Paralegal</div>
+        <div class="orgName">Abel Hernández Soto</div>
+      </div>
+    </article>
+
+    <article class="orgNode">
+      <div class="orgIcon"><i class="fa-solid fa-hand-holding-heart"></i></div>
+      <div class="orgText">
+        <div class="orgRole">Trabajo Social</div>
+        <div class="orgName">Karen I. Comezaña Bermejo</div>
+      </div>
+    </article>
+  </div>
+
+</div>
+
+
+    </section>
+  </main>
+
+<!-- ✅ BOTÓN VOLVER (AQUÍ ES EL LUGAR CORRECTO) -->
+  <div class="backHomeWrap">
+    <a href="index.html" class="backHomeBtn">Volver al inicio</a>
+  </div>
+
+  <!-- ===== FOOTER ===== -->
+  <footer class="siteFooter">
+    <div class="footerInner">
+      <div>
+        <div class="footBrand">
+          <img src="assets/img/logo.png" alt="Casa del Migrante" class="footLogo">
+          <div>
+            <div class="footTitle">Casa del Migrante</div>
+            <div class="footSub">Mons. Guillermo Ranzahuer González</div>
+          </div>
+        </div>
+        <div class="footCopy">
+          © <span id="year"></span> Casa del Migrante. Todos los derechos reservados.
+        </div>
+      </div>
+
+      <div class="footSocial">
+        <div class="footSocialTitle">Redes sociales</div>
+        <div class="footSocialLinks">
+          <a class="socialBtn" href="#" aria-label="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
+          <a class="socialBtn" href="#" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+          <a class="socialBtn" href="#" aria-label="WhatsApp"><i class="fa-brands fa-whatsapp"></i></a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- JS global (si lo usas para año dinámico, etc.) -->
+  <script src="assets/js/shared.js"></script>
+
+  <!-- ✅ Copiar correo (solo esta página, ligero) -->
+  <script>
+    document.querySelectorAll("[data-copy]").forEach(btn => {
+      btn.addEventListener("click", async () => {
+        const txt = btn.getAttribute("data-copy") || "";
+        try{
+          await navigator.clipboard.writeText(txt);
+          btn.classList.add("copied");
+          setTimeout(()=>btn.classList.remove("copied"), 900);
+        }catch{
+          alert("No se pudo copiar. Revisa permisos del navegador.");
+        }
+      });
+    });
+  </script>
+</body>
+</html>

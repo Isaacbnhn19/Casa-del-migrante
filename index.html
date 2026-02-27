@@ -1,0 +1,372 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" sizes="32x32" href="assets/img/favicon.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="assets/img/favicon.png">
+
+  <title>Casa del Migrante | Mons. Guillermo Ranzahuer González</title>
+
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
+  <link rel="stylesheet" href="assets/css/Inicio/styles.css" />
+</head>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@500;700;800;900&family=Playfair+Display:wght@600;700;800&family=Poppins:wght@600;700;800&display=swap" rel="stylesheet">
+
+<body>
+  <!-- LOGO ESTÁTICO (NO sticky) -->
+  <div class="logoTop" id="inicio">
+    <div class="logoTopInner">
+      <a class="brand brandStatic" href="index.html">
+        <img src="assets/img/logo.png" alt="Casa del Migrante" class="brandLogo">
+        <div class="brandText">
+          <div class="brandTop">Casa del Migrante</div>
+          <div class="brandBottom">Monseñor Guillermo Ranzahuer González</div>
+        </div>
+      </a>
+    </div>
+  </div>
+
+  <!-- BARRA STICKY (solo menú + acciones) -->
+  <header class="siteHeader siteHeaderBar">
+    <div class="headerInner headerBarInner">
+
+      <nav class="navMain" aria-label="Navegación principal">
+        <ul class="navList">
+
+          <!-- CONÓCENOS -->
+          <li class="navItem hasDrop">
+            <a class="navLink" href="conocenos.html">Conócenos</a>
+            <div class="navDrop" role="menu" aria-label="Submenú Conócenos">
+              <a role="menuitem" href="historia.html">Historia</a>
+              <a role="menuitem" href="quienes-somos.html">¿Quiénes somos?</a>
+              <a role="menuitem" href="equipo.html">Nuestro equipo</a>
+              <a role="menuitem" href="codigo-etica.html">Código de ética</a>
+              <a role="menuitem" href="impacto.html">Impacto</a>
+            </div>
+          </li>
+
+          <!-- AYÚDANOS A AYUDAR -->
+          <li class="navItem hasDrop">
+            <a class="navLink" href="ayudanos.html">Ayúdanos a ayudar</a>
+            <div class="navDrop" role="menu" aria-label="Submenú Ayúdanos a ayudar">
+              <a role="menuitem" href="participacion-solidaria.html">Participación solidaria</a>
+              <a role="menuitem" href="voluntariado.html">Voluntariado</a>
+            </div>
+          </li>
+
+          <!-- ACTUALIDAD -->
+          <li class="navItem hasDrop">
+            <a class="navLink" href="actualidad.html">Actualidad</a>
+            <div class="navDrop" role="menu" aria-label="Submenú Actualidad">
+              <a role="menuitem" href="galeria-fotos.html">Galería de fotos</a>
+              <a role="menuitem" href="galeria-videos.html">Galería de videos</a>
+            </div>
+          </li>
+
+          <!-- CONTACTO (sin submenu) -->
+          <li class="navItem">
+            <a class="navLink" href="contacto.html">Contacto</a>
+          </li>
+
+          <!-- DONAR -->
+          <li class="navItem">
+            <a class="navLink navLinkStrong" href="donar.html">Donar</a>
+          </li>
+
+        </ul>
+      </nav>
+
+      <div class="headerActions">
+        <a class="btnLogin" href="/login.html">
+          <i class="fa-solid fa-right-to-bracket mr-2"></i> Iniciar sesión
+        </a>
+      </div>
+
+    </div>
+  </header>
+
+  <!-- HERO  -->
+  <main>
+    <section class="heroWrap">
+      <div class="heroInner">
+        <div class="heroText">
+          <div class="heroKicker">Refugio • Protección • Integración</div>
+
+          <h1 class="heroTitle">
+            Un espacio seguro para quienes
+            <span class="heroAccent">buscan esperanza</span>
+          </h1>
+
+          <p class="heroLead">
+            Casa del Migrante “Mons. Guillermo Ranzahuer González” brinda
+            atención humanitaria integral con enfoque en dignidad y derechos humanos.
+          </p>
+
+          <div class="heroMini">
+            <div class="miniPill"><i class="fa-solid fa-bed"></i> Alojamiento</div>
+            <div class="miniPill"><i class="fa-solid fa-scale-balanced"></i> Asesoría jurídica</div>
+            <div class="miniPill"><i class="fa-solid fa-heart-pulse"></i> Salud integral</div>
+          </div>
+        </div>
+
+        <div class="heroCard">
+          <div class="heroCardTop">
+            <div class="heroBadge">Casa Ranzahuer</div>
+            <div class="heroBadge muted">Oluta, Ver.</div>
+          </div>
+
+          <div class="heroCardBody">
+            <div class="heroStat">
+              <div class="heroStatLabel">Trayectoria</div>
+              <div class="heroStatValue">+25 años</div>
+            </div>
+            <div class="heroStat">
+              <div class="heroStatLabel">Atención integral</div>
+              <div class="heroStatValue">3 pilares</div>
+            </div>
+            <div class="heroStat">
+              <div class="heroStatLabel">Enfoque</div>
+              <div class="heroStatValue">DDHH</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CARRUSEL (tipo FM4) -->
+    <section class="mx-auto max-w-7xl px-4 pb-14">
+      <div class="sectionCard">
+        <div class="flex items-center justify-between flex-wrap gap-3">
+          <div>
+            <h2 class="secTitle">Actualidad</h2>
+            <p class="secText">Actividades, campañas y acciones de apoyo.</p>
+          </div>
+          <a class="badgeSoft badgeLink" href="galeria-fotos.html">Ver galería<i class="fa-solid fa-arrow-right"></i></a>
+        </div>
+
+        <div class="carousel mt-6" aria-label="Carrusel de imágenes">
+          <button class="carBtn prev" type="button" aria-label="Anterior">
+            <i class="fa-solid fa-chevron-left"></i>
+          </button>
+
+          <div class="carViewport">
+            <div class="carTrack">
+              <!-- Imagenes en carousel -->
+              <div class="carSlide">
+                <img src="assets/img/carousel/por1.jpg" alt="Actividad 1" />
+              </div>
+              <div class="carSlide">
+                <img src="assets/img/carousel/por2.jpg" alt="Actividad 2" />
+              </div>
+              <div class="carSlide">
+                <img src="assets/img/carousel/por3.jpg" alt="Actividad 3" />
+              </div>
+              <div class="carSlide">
+                <img src="assets/img/carousel/por4.jpg" alt="Actividad 3" />
+              </div>
+              <div class="carSlide">
+                <img src="assets/img/carousel/por5.jpeg" alt="Actividad 3" />
+              </div>
+              <div class="carSlide">
+                <img src="assets/img/carousel/por6.jpeg" alt="Actividad 3" />
+              </div>
+              <div class="carSlide">
+                <img src="assets/img/carousel/por7.jpeg" alt="Actividad 3" />
+              </div>
+            </div>
+          </div>
+
+          <button class="carBtn next" type="button" aria-label="Siguiente">
+            <i class="fa-solid fa-chevron-right"></i>
+          </button>
+
+          <div class="carDots" aria-label="Indicadores"></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- VIDEO (mismo tamaño visual que el carrusel) -->
+    <section class="mx-auto max-w-7xl px-4 pb-14">
+      <div class="sectionCard">
+        <div class="flex items-center justify-between flex-wrap gap-3">
+          <div>
+            <h2 class="secTitle">Conoce la Casa del Migrante en un vistazo</h2>
+          </div>
+          <a class="badgeSoft badgeLink" href="galeria-videos.html">Ver galería<i class="fa-solid fa-arrow-right"></i></a>
+        </div>
+        <div class="videoFrame mt-6">
+          <video class="videoEl" controls preload="metadata" poster="assets/img/video-poster.png">
+            <source src="assets/videos/casa-ranzahuer.mp4" type="video/mp4" />
+            Tu navegador no soporta video HTML5.
+          </video>
+        </div>
+      </div>
+    </section>
+
+    <!-- ✅ NUEVO: ATENCIONES BRINDADAS (2016–2025) -->
+    <section class="mx-auto max-w-7xl px-4 pb-14">
+      <div class="sectionCard">
+        <div class="flex items-center justify-between flex-wrap gap-3">
+          <div>
+            <h2 class="secTitle">Atenciones brindadas</h2>
+            <p class="secText">Resumen institucional 2016–2025.</p>
+          </div>
+          <span class="badgeSoft">2016–2025</span>
+        </div>
+
+        <!-- Grid principal (lo más “pesado” / relevante) -->
+        <div class="statsGrid mt-6">
+          <div class="statCard">
+            <div class="statLabel"><i class="fa-solid fa-utensils" style="margin-right:8px;"></i> Alimentos brindados</div>
+            <div class="statValue countUp" data-count="2713435">0</div>
+            <div class="statHint">Atenciones totales (2016–2025)</div>
+          </div>
+
+          <div class="statCard">
+            <div class="statLabel"><i class="fa-solid fa-shirt" style="margin-right:8px;"></i> Prendas entregadas</div>
+            <div class="statValue countUp" data-count="679935">0</div>
+            <div class="statHint">Ropa y artículos esenciales</div>
+          </div>
+
+          <div class="statCard">
+            <div class="statLabel"><i class="fa-solid fa-scale-balanced" style="margin-right:8px;"></i> Asesorías legales</div>
+            <div class="statValue countUp" data-count="271437">0</div>
+            <div class="statHint">Acompañamiento y orientación</div>
+          </div>
+
+          <div class="statCard">
+            <div class="statLabel"><i class="fa-solid fa-person-shelter" style="margin-right:8px;"></i> Solicitudes de refugio</div>
+            <div class="statValue countUp" data-count="6515">0</div>
+            <div class="statHint">Casos atendidos</div>
+          </div>
+        </div>
+
+        <!-- Complemento (categorías del “pastel” / desglose clave) -->
+        <div class="splitRow mt-6">
+          <div class="splitCard">
+            <h3 class="splitTitle">Acompañamientos</h3>
+
+            <div class="pillGrid">
+              <div class="pill">
+                <span>Atención psicosocial</span>
+                <strong><span class="countUpInline" data-count="31137">0</span></strong>
+              </div>
+              <div class="pill">
+                <span>Trabajo social</span>
+                <strong><span class="countUpInline" data-count="31548">0</span></strong>
+              </div>
+              <div class="pill">
+                <span>Llamadas RCF</span>
+                <strong><span class="countUpInline" data-count="4428">0</span></strong>
+              </div>
+            </div>
+
+            <div class="smallNote">
+              *Atenciones brindadas entre 2016 y 2025.
+            </div>
+          </div>
+
+          <div class="splitCard">
+            <h3 class="splitTitle">Entregas humanitarias</h3>
+
+            <div class="pillGrid">
+              <div class="pill">
+                <span>Kits de aseo</span>
+                <strong><span class="countUpInline" data-count="174973">0</span></strong>
+              </div>
+              <div class="pill">
+                <span>Prendas</span>
+                <strong><span class="countUpInline" data-count="679935">0</span></strong>
+              </div>
+              <div class="pill">
+                <span>Alimentos</span>
+                <strong><span class="countUpInline" data-count="2713435">0</span></strong>
+              </div>
+            </div>
+
+            <div class="smallNote">
+              *Cifras acumuladas 2016–2025.
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA DONAR (queda SOLO y centrado) -->
+    <section class="mx-auto max-w-7xl px-4 pb-16">
+      <div class="flex justify-center">
+        <a class="tileCard tileDonar" href="donar.html">
+          <div class="tileIcon">
+            <i class="fa-solid fa-hand-holding-heart"></i>
+          </div>
+          <div class="tileTitle">Donar</div>
+          <div class="tileText">
+            Tu apoyo hace posible la atención humanitaria y la protección de personas migrantes.
+          </div>
+          <div class="tileLink">
+            Donar ahora <i class="fa-solid fa-arrow-right ml-2"></i>
+          </div>
+        </a>
+      </div>
+    </section>
+  </main>
+
+  <footer class="siteFooter">
+    <div class="footerInner">
+      <div class="footBrand">
+        <img src="assets/img/logo.png" class="footLogo" alt="Casa del Migrante">
+        <div>
+          <div class="footTitle">Casa del Migrante</div>
+          <div class="footSub">Monseñor Guillermo Ranzahuer González — Oluta, Veracruz</div>
+        </div>
+      </div>
+
+      <div class="footSocial">
+        <div class="footSocialTitle">Redes sociales</div>
+
+        <div class="footSocialLinks">
+          <a href="https://www.facebook.com/casa.ranzahuerg/?locale=es_LA"
+             target="_blank"
+             rel="noopener"
+             aria-label="Facebook"
+             class="socialBtn">
+            <i class="fa-brands fa-facebook-f"></i>
+          </a>
+
+          <a href="https://www.instagram.com/casa.ranzahuer"
+             target="_blank"
+             rel="noopener"
+             aria-label="Instagram"
+             class="socialBtn">
+            <i class="fa-brands fa-instagram"></i>
+          </a>
+
+          <a href="https://wa.me/qr/4LLOEVB3HDWIJ1"
+             target="_blank"
+             rel="noopener"
+             aria-label="WhatsApp"
+             class="socialBtn">
+            <i class="fa-brands fa-whatsapp"></i>
+          </a>
+        </div>
+      </div>
+
+      <div class="footCopy">
+        © <span id="year"></span> Casa del Migrante Mons. Guillermo Ranzahuer González · Todos los derechos reservados
+      </div>
+    </div>
+  </footer>
+
+  <script src="assets/js/carousel.js"></script>
+  <script src="assets/js/stats-anim.js"></script>
+  <script src="assets/js/footer-year.js"></script>
+  <script src="assets/js/menu-disable.js"></script>
+</body>
+</html>

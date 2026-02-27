@@ -1,0 +1,617 @@
+/* =========================================================
+   DONAR – estilo tipo FM4 (pero con tu look)
+   - Resumen sticky
+   - Stepper visual
+   - Campos tarjeta (demo)
+   - Inputs y botones PRO (NO básicos)
+   - Video compacto
+========================================================= */
+
+/* ===== Helpers ===== */
+.mt-6{ margin-top: 12px; } /* por si no existía en tus globales */
+
+/* Header del bloque */
+.donateHead{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+/* =========================
+   VIDEO (compacto y sin huecos)
+========================= */
+.donateVideo{
+  height: 260px;              /* ✅ antes 360 */
+  margin-top: 12px;
+}
+@media (max-width: 700px){
+  .donateVideo{ height: 200px; }
+}
+
+/* Shell: Form + Resumen */
+.donateShell{
+  display:grid;
+  grid-template-columns: 1.1fr .9fr;
+  gap: 12px;
+  align-items:start;
+}
+@media (max-width: 980px){
+  .donateShell{ grid-template-columns: 1fr; }
+}
+
+.donateRight{
+  position: sticky;
+  top: 92px;
+  align-self: start;
+}
+
+/* =========================
+   STEPS (panel suave)
+========================= */
+.donStep{
+  margin-top: 16px;
+  padding: 14px;
+  border-radius: 20px;
+  border: 1px solid rgba(20,36,70,.12);
+  background:
+    radial-gradient(520px 180px at 14% 10%, rgba(179,204,246,.28), transparent 60%),
+    radial-gradient(520px 180px at 86% 10%, rgba(173,132,227,.18), transparent 60%),
+    rgba(255,255,255,.78);
+  box-shadow: 0 16px 38px rgba(20,36,70,.10);
+}
+
+.stepTitle{
+  display:flex;
+  align-items:center;
+  gap: 10px;
+  font-weight: 1000;
+  color: rgba(20,36,70,.92);
+}
+
+.stepNum{
+  width: 34px;
+  height: 34px;
+  border-radius: 999px;
+  display:grid;
+  place-items:center;
+
+  background: linear-gradient(135deg, rgba(173,132,227,.95), rgba(179,204,246,.92));
+  color: rgba(20,36,70,.95);
+  border: 1px solid rgba(20,36,70,.12);
+  box-shadow: 0 14px 30px rgba(20,36,70,.10);
+}
+
+/* =========================
+   INPUTS PRO (reemplaza look básico)
+   - Aplica SOLO dentro del form de donación
+========================= */
+.donateForm .fInput{
+  border-radius: 18px;
+  padding: 13px 14px;
+  border: 1px solid rgba(20,36,70,.14);
+  background:
+    radial-gradient(420px 140px at 14% 30%, rgba(179,204,246,.18), transparent 60%),
+    rgba(255,255,255,.92);
+  color: rgba(20,36,70,.92);
+  font-weight: 900;
+  box-shadow:
+    0 12px 26px rgba(20,36,70,.08),
+    inset 0 1px 0 rgba(255,255,255,.65);
+  transition:
+    transform .15s ease,
+    box-shadow .15s ease,
+    border-color .15s ease,
+    background .15s ease;
+}
+
+.donateForm .fInput::placeholder{
+  color: rgba(20,36,70,.50);
+  font-weight: 800;
+}
+
+.donateForm .fInput:focus{
+  border-color: rgba(173,132,227,.35);
+  box-shadow:
+    0 18px 40px rgba(20,36,70,.10),
+    0 0 0 4px rgba(173,132,227,.12),
+    inset 0 1px 0 rgba(255,255,255,.70);
+  background:
+    radial-gradient(420px 140px at 14% 30%, rgba(173,132,227,.14), transparent 60%),
+    rgba(255,255,255,.96);
+}
+
+.donateForm .fArea{
+  min-height: 110px;
+}
+
+/* Etiquetas ligeramente más “premium” */
+.donateForm .fLabel{
+  font-weight: 1000;
+  color: rgba(20,36,70,.84);
+  letter-spacing: .02em;
+}
+
+/* =========================
+   AMOUNTS (botones de monto)
+========================= */
+.amountGrid{
+  display:grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 10px;
+  margin-top: 12px;
+}
+@media (max-width: 520px){
+  .amountGrid{ grid-template-columns: repeat(2, 1fr); }
+}
+
+.amountBtn{
+  padding: 12px 10px;
+  border-radius: 18px;
+  border: 1px solid rgba(20,36,70,.14);
+
+  background:
+    radial-gradient(280px 120px at 15% 35%, rgba(179,204,246,.22), transparent 65%),
+    rgba(255,255,255,.92);
+
+  color: rgba(20,36,70,.92);
+  font-weight: 1000;
+  cursor:pointer;
+
+  box-shadow:
+    0 14px 30px rgba(20,36,70,.08),
+    inset 0 1px 0 rgba(255,255,255,.65);
+
+  transition: transform .15s ease, background .15s ease, border-color .15s ease, box-shadow .15s ease;
+}
+
+.amountBtn:hover{
+  transform: translateY(-2px);
+  background:
+    radial-gradient(280px 120px at 15% 35%, rgba(173,132,227,.18), transparent 65%),
+    rgba(255,255,255,.96);
+  border-color: rgba(173,132,227,.22);
+  box-shadow: 0 18px 40px rgba(20,36,70,.10);
+}
+
+.amountBtn.active{
+  background:
+    linear-gradient(135deg, rgba(173,132,227,.22), rgba(179,204,246,.22)),
+    rgba(255,255,255,.96);
+  border-color: rgba(173,132,227,.38);
+}
+
+/* =========================
+   Two columns form
+========================= */
+.twoCols{
+  display:grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+}
+@media (max-width: 700px){
+  .twoCols{ grid-template-columns: 1fr; }
+}
+
+/* =========================
+   Payment methods
+========================= */
+.payMethods{
+  margin-top: 12px;
+  display:grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+}
+@media (max-width: 700px){
+  .payMethods{ grid-template-columns: 1fr; }
+}
+
+.payCard{
+  border-radius: 20px;
+  border: 1px solid rgba(20,36,70,.12);
+  background: rgba(255,255,255,.92);
+  box-shadow: 0 14px 32px rgba(20,36,70,.08);
+  cursor:pointer;
+  transition: transform .15s ease, background .15s ease, border-color .15s ease, box-shadow .15s ease;
+  overflow:hidden;
+  position: relative;
+}
+
+.payCard:hover{
+  transform: translateY(-2px);
+  background: rgba(179,204,246,.18);
+  border-color: rgba(173,132,227,.22);
+  box-shadow: 0 18px 44px rgba(20,36,70,.10);
+}
+
+.payCard input{
+  position:absolute;
+  inset:0;
+  opacity:0;
+  cursor:pointer;
+}
+
+.payInner{
+  display:flex;
+  align-items:center;
+  gap: 12px;
+  padding: 12px;
+}
+
+.payIcon{
+  width: 46px;
+  height: 46px;
+  border-radius: 18px;
+  display:grid;
+  place-items:center;
+
+  background:
+    linear-gradient(135deg, rgba(179,204,246,.30), rgba(173,132,227,.16));
+  border: 1px solid rgba(20,36,70,.12);
+  color: rgba(20,36,70,.92);
+  font-size: 18px;
+}
+
+.payTitle{ font-weight: 1000; color: rgba(20,36,70,.92); }
+.paySub{ font-weight: 900; color: rgba(20,36,70,.68); font-size: 12px; margin-top: 2px; }
+
+.payCard:has(input:checked){
+  border-color: rgba(173,132,227,.40);
+  background:
+    radial-gradient(520px 180px at 16% 10%, rgba(179,204,246,.26), transparent 60%),
+    radial-gradient(520px 180px at 86% 10%, rgba(173,132,227,.18), transparent 60%),
+    rgba(255,255,255,.96);
+}
+
+/* =========================
+   BOTONES PRO (Continuar / Regresar / Confirmar)
+   - Reemplaza look “HTML básico”
+========================= */
+
+/* Base “pro” (se aplica a los 3) */
+.donActions .btnPrimary,
+.donActions .btnGhost{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  gap: 10px;
+
+  padding: 12px 16px;
+  border-radius: 18px;
+  font-weight: 1000;
+  font-size: 14px;
+  letter-spacing: .02em;
+
+  cursor:pointer;
+  text-decoration:none;
+
+  transition:
+    transform .15s ease,
+    box-shadow .15s ease,
+    background .15s ease,
+    border-color .15s ease,
+    filter .15s ease;
+}
+
+/* Continuar / Confirmar (principal) */
+.donActions .btnPrimary{
+  border: 1px solid rgba(20,36,70,.10);
+  color: rgba(20,36,70,.95);
+  background:
+    radial-gradient(280px 140px at 18% 35%, rgba(173,132,227,.42), transparent 62%),
+    radial-gradient(280px 140px at 82% 35%, rgba(179,204,246,.48), transparent 62%),
+    linear-gradient(135deg, rgba(173,132,227,.55), rgba(179,204,246,.55)),
+    rgba(255,255,255,.84);
+
+  box-shadow:
+    0 18px 44px rgba(20,36,70,.12),
+    inset 0 1px 0 rgba(255,255,255,.75);
+}
+
+.donActions .btnPrimary:hover{
+  transform: translateY(-2px);
+  box-shadow:
+    0 26px 58px rgba(20,36,70,.14),
+    inset 0 1px 0 rgba(255,255,255,.80);
+  filter: brightness(1.02);
+}
+
+.donActions .btnPrimary:active{
+  transform: translateY(0);
+}
+
+/* Regresar (secundario pro) */
+.donActions .btnGhost{
+  border: 1px solid rgba(20,36,70,.14);
+  color: rgba(20,36,70,.92);
+  background:
+    radial-gradient(240px 120px at 18% 35%, rgba(179,204,246,.22), transparent 62%),
+    rgba(255,255,255,.88);
+
+  box-shadow:
+    0 14px 34px rgba(20,36,70,.10),
+    inset 0 1px 0 rgba(255,255,255,.70);
+}
+
+.donActions .btnGhost:hover{
+  transform: translateY(-2px);
+  background:
+    radial-gradient(240px 120px at 18% 35%, rgba(173,132,227,.16), transparent 62%),
+    rgba(255,255,255,.92);
+  border-color: rgba(173,132,227,.24);
+}
+
+.donActions .btnGhost:active{ transform: translateY(0); }
+
+/* Accesibilidad */
+.donActions .btnPrimary:focus-visible,
+.donActions .btnGhost:focus-visible{
+  outline: 3px solid rgba(173,132,227,.30);
+  outline-offset: 3px;
+}
+
+/* =========================
+   Secure note
+========================= */
+.donateSecure{
+  margin-top: 12px;
+  display:flex;
+  align-items:center;
+  gap: 10px;
+
+  padding: 10px 12px;
+  border-radius: 18px;
+  border: 1px solid rgba(20,36,70,.12);
+
+  background:
+    radial-gradient(420px 160px at 14% 30%, rgba(179,204,246,.20), transparent 60%),
+    rgba(255,255,255,.82);
+
+  color: rgba(20,36,70,.80);
+  font-weight: 900;
+  font-size: 12px;
+}
+
+/* =========================
+   Card preview (demo)
+========================= */
+.cardMock{
+  margin-top: 12px;
+  border-radius: 20px;
+  padding: 14px;
+  border: 1px solid rgba(20,36,70,.12);
+  background:
+    radial-gradient(620px 220px at 15% 20%, rgba(179,204,246,.38), transparent 60%),
+    radial-gradient(620px 220px at 85% 20%, rgba(173,132,227,.24), transparent 60%),
+    rgba(255,255,255,.92);
+  box-shadow: 0 18px 40px rgba(20,36,70,.10);
+}
+
+.cardBrand{
+  display:flex;
+  gap: 10px;
+  font-size: 22px;
+  color: rgba(20,36,70,.78);
+}
+
+.cardDigits{
+  margin-top: 14px;
+  font-weight: 1000;
+  letter-spacing: .12em;
+  color: rgba(20,36,70,.92);
+  font-variant-numeric: tabular-nums;
+}
+
+.cardFoot{
+  margin-top: 12px;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap: 10px;
+  color: rgba(20,36,70,.74);
+  font-weight: 1000;
+  font-size: 12px;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+}
+
+/* =========================
+   Summary (derecha)
+========================= */
+.sumHead{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap: 10px;
+  flex-wrap: wrap;
+  margin-bottom: 10px;
+}
+
+.sumTitle{
+  margin:0;
+  font-weight: 1000;
+  font-size: 18px;
+  color: rgba(20,36,70,.92);
+}
+
+.sumRows{
+  margin-top: 10px;
+  display:flex;
+  flex-direction:column;
+  gap: 10px;
+}
+
+.sumRow{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap: 10px;
+  padding: 10px 12px;
+  border-radius: 18px;
+  border: 1px solid rgba(20,36,70,.12);
+  background: rgba(255,255,255,.80);
+  box-shadow: 0 10px 24px rgba(20,36,70,.08);
+}
+
+.sumLabel{
+  font-weight: 1000;
+  color: rgba(20,36,70,.70);
+  font-size: 12px;
+}
+
+.sumValue{
+  font-weight: 1000;
+  color: rgba(20,36,70,.92);
+}
+
+.sumLine{
+  margin: 14px 0;
+  height: 1px;
+  background: rgba(20,36,70,.10);
+}
+
+.sumTotal{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  font-weight: 1000;
+  color: rgba(20,36,70,.92);
+}
+
+.sumTotal strong{
+  font-size: 18px;
+  color: rgba(20,36,70,.95);
+}
+
+.sumHint{
+  margin-top: 10px;
+  font-weight: 900;
+  color: rgba(20,36,70,.70);
+  min-height: 18px;
+}
+
+.sumBadges{
+  margin-top: 12px;
+  display:flex;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.sumBadge{
+  display:inline-flex;
+  align-items:center;
+  gap: 8px;
+  padding: 8px 10px;
+  border-radius: 999px;
+  font-weight: 1000;
+  font-size: 12px;
+  border: 1px solid rgba(20,36,70,.12);
+  background: rgba(255,255,255,.80);
+  color: rgba(20,36,70,.82);
+}
+
+/* =========================
+   Banco (datos bancarios)
+========================= */
+.bankCard .bankTop{
+  display:flex;
+  justify-content:space-between;
+  align-items:flex-start;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.bankGrid{
+  display:grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 10px;
+}
+@media (max-width: 700px){
+  .bankGrid{ grid-template-columns: 1fr; }
+}
+
+.bankItem{
+  border-radius: 18px;
+  border: 1px solid rgba(20,36,70,.12);
+  background: rgba(255,255,255,.74);
+  box-shadow: 0 12px 28px rgba(20,36,70,.08);
+  padding: 12px;
+}
+
+.bankLabel{
+  font-weight: 1000;
+  color: rgba(20,36,70,.70);
+  font-size: 12px;
+  text-transform: uppercase;
+  letter-spacing: .06em;
+}
+
+.bankValue{
+  margin-top: 6px;
+  font-weight: 1000;
+  color: rgba(20,36,70,.92);
+}
+
+.mono{
+  font-variant-numeric: tabular-nums;
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+}
+
+.copyMini{
+  margin-top: 10px;
+  display:inline-flex;
+  align-items:center;
+  gap: 8px;
+  padding: 9px 10px;
+  border-radius: 16px;
+  border: 1px solid rgba(20,36,70,.12);
+  background: rgba(255,255,255,.82);
+  color: rgba(20,36,70,.92);
+  font-weight: 1000;
+  cursor:pointer;
+  transition: transform .15s ease, background .15s ease, border-color .15s ease;
+}
+
+.copyMini:hover{
+  transform: translateY(-2px);
+  background: rgba(179,204,246,.22);
+  border-color: rgba(173,132,227,.22);
+}
+
+.bankNote{
+  display:flex;
+  gap: 12px;
+  align-items:flex-start;
+  padding: 14px;
+  border-radius: 18px;
+  border: 1px solid rgba(20,36,70,.12);
+  background:
+    radial-gradient(420px 160px at 15% 20%, rgba(179,204,246,.35), transparent 60%),
+    radial-gradient(420px 160px at 85% 20%, rgba(173,132,227,.22), transparent 60%),
+    rgba(255,255,255,.84);
+  box-shadow: 0 16px 38px rgba(20,36,70,.10);
+  color: rgba(20,36,70,.88);
+}
+
+.bankNote i{
+  width: 42px;
+  height: 42px;
+  border-radius: 16px;
+  display:grid;
+  place-items:center;
+  background: rgba(179,204,246,.22);
+  border: 1px solid rgba(173,132,227,.18);
+  color: rgba(20,36,70,.92);
+}
+
+.bankNoteTitle{
+  font-weight: 1000;
+  margin-bottom: 4px;
+}
+
+.bankNoteText{
+  font-weight: 900;
+  color: rgba(20,36,70,.78);
+  line-height: 1.5;
+}

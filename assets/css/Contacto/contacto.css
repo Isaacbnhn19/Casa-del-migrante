@@ -1,0 +1,277 @@
+/* =========================================================
+   Contacto
+   - Quick actions
+   - Organigrama (cards)
+   - Formulario demo
+   - Mapa embebido con marco pro
+========================================================= */
+
+.contactQuick{
+  display:flex;
+  align-items:flex-start;
+  justify-content:space-between;
+  gap: 14px;
+  flex-wrap: wrap;
+  padding: 18px;
+}
+
+.quickLeft{ min-width: 260px; }
+
+.quickBtns{
+  display:flex;
+  gap: 10px;
+  flex-wrap: wrap;
+  align-items:center;
+  justify-content:flex-end;
+}
+
+.qBtn{
+  display:inline-flex;
+  align-items:center;
+  gap: 10px;
+
+  padding: 10px 12px;
+  border-radius: 16px;
+  font-weight: 1000;
+  font-size: 13px;
+  text-decoration:none;
+
+  color: rgba(20,36,70,.92);
+  background: rgba(255,255,255,.78);
+  border: 1px solid rgba(20,36,70,.12);
+  box-shadow: 0 14px 34px rgba(20,36,70,.10);
+
+  transition: transform .15s ease, background .15s ease, border-color .15s ease;
+  cursor: pointer;
+}
+
+.qBtn:hover{
+  transform: translateY(-2px);
+  background: rgba(179,204,246,.22);
+  border-color: rgba(173,132,227,.22);
+}
+
+.qBtnGhost{
+  background: rgba(255,255,255,.65);
+}
+
+.copyHint{
+  width: 100%;
+  margin-top: 10px;
+  font-weight: 900;
+  color: rgba(20,36,70,.70);
+  min-height: 18px;
+}
+
+.contactGrid{
+  display:grid;
+  grid-template-columns: 1.15fr .85fr;
+  gap: 12px;
+}
+
+@media (max-width: 980px){
+  .contactGrid{ grid-template-columns: 1fr; }
+}
+
+/* Listado del organigrama */
+.teamList{
+  margin-top: 14px;
+  display:flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.teamRow{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap: 12px;
+
+  padding: 12px 12px;
+  border-radius: 18px;
+  border: 1px solid rgba(20,36,70,.12);
+  background: rgba(255,255,255,.70);
+  box-shadow: 0 12px 28px rgba(20,36,70,.08);
+}
+
+.role{
+  display:flex;
+  align-items:center;
+  gap: 10px;
+  min-width: 0;
+}
+
+.role i{
+  width: 40px;
+  height: 40px;
+  border-radius: 16px;
+  display:grid;
+  place-items:center;
+
+  background: rgba(179,204,246,.22);
+  border: 1px solid rgba(173,132,227,.18);
+  color: rgba(20,36,70,.92);
+}
+
+.roleTop{
+  font-weight: 1000;
+  color: rgba(20,36,70,.92);
+}
+
+.roleSub{
+  font-weight: 900;
+  color: rgba(20,36,70,.68);
+  font-size: 12px;
+  margin-top: 2px;
+}
+
+.actions{
+  display:flex;
+  gap: 8px;
+  align-items:center;
+}
+
+.iconBtn{
+  width: 40px;
+  height: 40px;
+  border-radius: 16px;
+  display:grid;
+  place-items:center;
+  text-decoration:none;
+
+  background: rgba(255,255,255,.80);
+  border: 1px solid rgba(20,36,70,.12);
+  color: rgba(20,36,70,.92);
+
+  box-shadow: 0 12px 26px rgba(20,36,70,.08);
+  transition: transform .15s ease, background .15s ease, border-color .15s ease;
+  cursor: pointer;
+}
+
+.iconBtn:hover{
+  transform: translateY(-2px);
+  background: rgba(179,204,246,.22);
+  border-color: rgba(173,132,227,.22);
+}
+
+.pillMini{
+  display:inline-flex;
+  align-items:center;
+  gap: 8px;
+  padding: 8px 10px;
+  border-radius: 999px;
+  font-weight: 1000;
+  font-size: 12px;
+
+  background: rgba(173,132,227,.14);
+  border: 1px solid rgba(173,132,227,.18);
+  color: rgba(20,36,70,.88);
+}
+
+/* Form */
+.contactForm{
+  margin-top: 14px;
+  display:flex;
+  flex-direction:column;
+  gap: 12px;
+}
+
+.fRow{
+  display:flex;
+  flex-direction:column;
+  gap: 6px;
+}
+
+.fLabel{
+  font-weight: 1000;
+  color: rgba(20,36,70,.82);
+  font-size: 13px;
+}
+
+.fInput{
+  width: 100%;
+  padding: 12px 12px;
+  border-radius: 16px;
+  border: 1px solid rgba(20,36,70,.12);
+  background: rgba(255,255,255,.85);
+  color: rgba(20,36,70,.92);
+  font-weight: 900;
+  outline: none;
+}
+
+.fInput:focus{
+  border-color: rgba(173,132,227,.28);
+  box-shadow: 0 0 0 4px rgba(173,132,227,.12);
+}
+
+.fArea{
+  resize: vertical;
+  min-height: 120px;
+}
+
+.fActions{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.formStatus{
+  font-weight: 1000;
+  color: rgba(20,36,70,.70);
+}
+
+/* Mapa */
+.mapHead{
+  display:flex;
+  align-items:flex-start;
+  justify-content:space-between;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.mapFrame{
+  margin-top: 14px;
+  border-radius: 18px;
+  overflow: hidden;
+  border: 1px solid rgba(20,36,70,.12);
+  background: rgba(255,255,255,.70);
+  box-shadow: 0 18px 40px rgba(20,36,70,.10);
+}
+
+.mapFrame iframe{
+  width: 100%;
+  height: 420px;
+  display:block;
+}
+
+@media (max-width: 700px){
+  .mapFrame iframe{ height: 320px; }
+}
+
+/* =========================================================
+   Email visible en organigrama
+   - Negritas
+   - Estilo pill elegante
+   - Compatible con botón copiar
+========================================================= */
+
+.emailText{
+  display:inline-flex;
+  align-items:center;
+  padding: 8px 12px;
+
+  font-weight: 1000;            /* ✅ NEGRITAS */
+  font-size: 13px;
+  letter-spacing: .02em;
+
+  color: rgba(20,36,70,.92);
+  background: rgba(255,255,255,.85);
+
+  border-radius: 999px;
+  border: 1px solid rgba(20,36,70,.14);
+
+  box-shadow: 0 8px 20px rgba(20,36,70,.08);
+  white-space: nowrap;
+}

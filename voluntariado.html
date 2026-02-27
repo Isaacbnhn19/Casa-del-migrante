@@ -1,0 +1,320 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Voluntariado | Casa del Migrante</title>
+
+  <!-- FavIcon (logo) -->
+  <link rel="icon" type="image/png" href="assets/img/logo.png" />
+
+  <!-- Iconos (Font Awesome) -->
+  <link rel="preconnect" href="https://cdnjs.cloudflare.com" />
+  <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+
+  <!-- ===== CSS GLOBAL (igual que tus otras páginas) ===== -->
+  <link rel="stylesheet" href="assets/css/Inicio/variables.css">
+  <link rel="stylesheet" href="assets/css/Inicio/base.css">
+  <link rel="stylesheet" href="assets/css/Inicio/cards.css">
+  <link rel="stylesheet" href="assets/css/Inicio/header-nav.css">
+  <link rel="stylesheet" href="assets/css/Inicio/footer.css">
+  <link rel="stylesheet" href="assets/css/Inicio/scrollbar.css">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@500;700;800;900&family=Playfair+Display:wght@600;700;800&family=Poppins:wght@600;700;800&display=swap" rel="stylesheet">
+
+  <!-- Layout/tipografías reutilizadas -->
+  <link rel="stylesheet" href="assets/css/Historia/historia.css">
+
+  <!-- ===== CSS ESPECÍFICO VOLUNTARIADO ===== -->
+  <link rel="stylesheet" href="assets/css/Ayudanos/voluntariado.css">
+</head>
+
+<body>
+
+  <!-- ===== LOGO SUPERIOR ===== -->
+  <div class="logoTop" id="inicio">
+    <div class="logoTopInner">
+      <a class="brand brandStatic" href="index.html">
+        <img src="assets/img/logo.png" alt="Casa del Migrante" class="brandLogo">
+        <div class="brandText">
+          <div class="brandTop">Casa del Migrante</div>
+          <div class="brandBottom">Mons. Guillermo Ranzahuer González</div>
+        </div>
+      </a>
+    </div>
+  </div>
+
+  <!-- ===== BARRA STICKY (sin login) ===== -->
+  <header class="siteHeaderBar">
+    <div class="headerInner">
+
+      <nav class="navMain" aria-label="Navegación principal">
+        <ul class="navList">
+
+          <!-- CONÓCENOS -->
+          <li class="navItem hasDrop">
+            <a class="navLink" href="#" aria-haspopup="true">Conócenos</a>
+            <div class="navDrop" role="menu" aria-label="Submenú Conócenos">
+              <a role="menuitem" href="historia.html">Historia</a>
+              <a role="menuitem" href="quienes-somos.html">¿Quiénes somos?</a>
+              <a role="menuitem" href="equipo.html">Nuestro equipo</a>
+              <a role="menuitem" href="codigo-etica.html">Código de ética</a>
+              <a role="menuitem" href="impacto.html">Impacto</a>
+            </div>
+          </li>
+
+          <!-- AYÚDANOS A AYUDAR -->
+          <li class="navItem hasDrop">
+            <a class="navLink" href="#" aria-haspopup="true">Ayúdanos a ayudar</a>
+            <div class="navDrop" role="menu" aria-label="Submenú Ayúdanos a ayudar">
+              <a role="menuitem" href="participacion-solidaria.html">Participación solidaria</a>
+              <a role="menuitem" href="voluntariado.html">Voluntariado</a>
+            </div>
+          </li>
+
+          <!-- ACTUALIDAD -->
+          <li class="navItem hasDrop">
+            <a class="navLink" href="#" aria-haspopup="true">Actualidad</a>
+            <div class="navDrop" role="menu" aria-label="Submenú Actualidad">
+              <a role="menuitem" href="galeria-fotos.html">Galería de fotos</a>
+              <a role="menuitem" href="galeria-videos.html">Galería de videos</a>
+            </div>
+          </li>
+
+          <!-- CONTACTO -->
+          <li class="navItem">
+            <a class="navLink" href="contacto.html">Contacto</a>
+          </li>
+
+          <!-- DONAR -->
+          <li class="navItem">
+            <a class="navLink navLinkStrong" href="donar.html">Donar</a>
+          </li>
+
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <!-- ===== CONTENIDO ===== -->
+  <main class="pageWrap">
+
+    <!-- HERO -->
+    <section class="pageHero">
+      <div class="pageHeroInner">
+        <p class="pageKicker">AYÚDANOS A AYUDAR</p>
+        <h1 class="pageTitle">Voluntariado 🙋‍♂️</h1>
+        <p class="pageLead">
+          Únete a nuestro programa de voluntariado y transforma tu compromiso social en acciones concretas.
+        </p>
+
+        <div class="volHeroPills" aria-label="Áreas de colaboración">
+          <span class="miniPill"><i class="fa-solid fa-scale-balanced"></i> Acompañamiento legal</span>
+          <span class="miniPill"><i class="fa-solid fa-brain"></i> Apoyo psicológico</span>
+          <span class="miniPill"><i class="fa-solid fa-stethoscope"></i> Atención médica</span>
+          <span class="miniPill"><i class="fa-solid fa-handshake-angle"></i> Gestión humanitaria</span>
+        </div>
+      </div>
+    </section>
+
+    <section class="mxWrap">
+
+      <!-- BLOQUE INTRO + FOTO -->
+      <div class="sectionCard volIntro">
+        <div class="volIntroGrid">
+          <div>
+            <div class="blockTitleRow">
+              <span class="blockIcon"><i class="fa-solid fa-people-carry-box"></i></span>
+              <h2 class="secTitle">Únete a nuestro voluntariado</h2>
+            </div>
+
+            <p class="secText">
+              ¿Buscas transformar tu compromiso social en acciones concretas? La Casa del Migrante te invita a unirte
+              a nuestro programa de voluntariado. Buscamos personas comprometidas con la defensa de los derechos humanos
+              y la dignidad de las personas refugiadas y en tránsito.
+            </p>
+
+            <p class="secText">
+              Como voluntario(a), colaborarás en áreas de acompañamiento legal, apoyo psicológico, atención médica y
+              gestión humanitaria. Tu talento puede ser la diferencia en el proyecto de vida de cientos de personas.
+              Únete a nuestro equipo y ayúdanos a construir una sociedad más hospitalaria.
+            </p>
+
+            <div class="volCtas">
+              <a class="btnSoftCta" href="contacto.html">
+                Quiero ser voluntario(a) <i class="fa-solid fa-arrow-right"></i>
+              </a>
+              <a class="btnSoftGhost" href="donar.html">
+                Apoyar con donativo <i class="fa-solid fa-heart"></i>
+              </a>
+            </div>
+
+            <p class="noteMini">
+              *Elige una de las opciones, sera de gran ayuda.
+            </p>
+          </div>
+
+          <!-- Foto principal (reemplazar después) -->
+          <figure class="volHeroPhoto">
+            <img src="assets/img/voluntariado/vol-hero.jpeg" alt="Voluntariado en Casa Ranzahuer (foto de ejemplo)">
+            <figcaption>Voluntariado en acción</figcaption>
+          </figure>
+        </div>
+      </div>
+
+      <!-- BLOQUE: ¿POR QUÉ VOLUNTARIADO? (5 puntos en cards) -->
+      <div class="sectionCard mt-6">
+        <div class="volSectionHead">
+          <div class="blockTitleRow">
+            <span class="blockIcon"><i class="fa-solid fa-compass"></i></span>
+            <h2 class="secTitle">¿Qué implica el voluntariado de tiempo completo?</h2>
+          </div>
+          <p class="secText">
+            Estos puntos explican por qué el voluntariado de tiempo completo se vuelve un pilar operativo y humano
+            dentro de la Casa del Migrante.
+          </p>
+        </div>
+
+        <div class="volCards" role="list">
+
+          <article class="vCard" role="listitem">
+            <div class="vCardTop">
+              <span class="vNum">1</span>
+              <h3 class="vTitle">Compromiso prioritario</h3>
+            </div>
+            <p class="vText">
+              A diferencia del voluntario que va unas horas a la semana, el voluntario de tiempo completo vive el día a día
+              de la organización. Su “jornada” se asemeja a la de un empleado, pero su motor no es un salario, sino la misión.
+              Es de los primeros en llegar y de los últimos en irse cuando hay una emergencia.
+            </p>
+          </article>
+
+          <article class="vCard" role="listitem">
+            <div class="vCardTop">
+              <span class="vNum">2</span>
+              <h3 class="vTitle">Profesionalización de la ayuda</h3>
+            </div>
+            <p class="vText">
+              Al estar ahí todo el día, el voluntario se vuelve un experto operativo: conoce protocolos, procesos internos
+              y cómo resolver situaciones críticas. Se convierte en un pilar de confianza para el equipo de planta.
+            </p>
+          </article>
+
+          <article class="vCard" role="listitem">
+            <div class="vCardTop">
+              <span class="vNum">3</span>
+              <h3 class="vTitle">Convivencia y empatía profunda</h3>
+            </div>
+            <p class="vText">
+              Muchas veces implica convivir en la Casa o en comunidad. Esa cercanía genera una conexión humana que no se logra
+              de otra manera: comparten espacios, rutinas y necesidades con las personas refugiadas.
+            </p>
+          </article>
+
+          <article class="vCard" role="listitem">
+            <div class="vCardTop">
+              <span class="vNum">4</span>
+              <h3 class="vTitle">Formación y crecimiento personal</h3>
+            </div>
+            <p class="vText">
+              Es una “escuela de vida”: desarrolla liderazgo, resolución de conflictos, gestión emocional e incluso idiomas.
+              Para la organización significa continuidad y una ayuda altamente calificada.
+            </p>
+          </article>
+
+          <article class="vCard" role="listitem">
+            <div class="vCardTop">
+              <span class="vNum">5</span>
+              <h3 class="vTitle">El corazón de la operación</h3>
+            </div>
+            <p class="vText">
+              En momentos de crisis, el voluntario de tiempo completo evita que la Casa colapse: asegura que siempre haya
+              alguien capacitado para recibir a una familia con dignidad y profesionalismo.
+            </p>
+          </article>
+
+        </div>
+      </div>
+
+      <!-- BLOQUE DE FOTOS (estilo FM4 pero más pro) -->
+      <div class="sectionCard mt-6">
+        <div class="volSectionHead">
+          <div class="blockTitleRow">
+            <span class="blockIcon"><i class="fa-solid fa-camera-retro"></i></span>
+            <h2 class="secTitle">Voluntariado en acción</h2>
+          </div>
+          <p class="secText">
+           Actividades: acompañamiento, apoyo en cocina, logística, eventos y atención.
+          </p>
+        </div>
+
+        <div class="volMosaic">
+          <figure class="vM vA">
+            <img src="assets/img/voluntariado/vol-1.jpeg" alt="Voluntariado - foto 1 (ejemplo)">
+          </figure>
+
+          <figure class="vM vB">
+            <img src="assets/img/voluntariado/vol-2.jpeg" alt="Voluntariado - foto 2 (ejemplo)">
+          </figure>
+
+          <figure class="vM vC">
+            <img src="assets/img/voluntariado/vol-3.jpeg" alt="Voluntariado - foto 3 (ejemplo)">
+          </figure>
+
+          <figure class="vM vD">
+            <img src="assets/img/voluntariado/vol-4.jpeg" alt="Voluntariado - foto 4 (ejemplo)">
+            <figcaption>Trabajo en equipo (ejemplo)</figcaption>
+          </figure>
+        </div>
+
+        <div class="volHint">
+        </div>
+      </div>
+
+    </section>
+  </main>
+
+<!-- ✅ BOTÓN VOLVER (AQUÍ ES EL LUGAR CORRECTO) -->
+  <div class="backHomeWrap">
+    <a href="index.html" class="backHomeBtn">Volver al inicio</a>
+  </div>
+
+  <!-- ===== FOOTER ===== -->
+  <footer class="siteFooter">
+    <div class="footerInner">
+
+      <div>
+        <div class="footBrand">
+          <img src="assets/img/logo.png" alt="Casa del Migrante" class="footLogo">
+          <div>
+            <div class="footTitle">Casa del Migrante</div>
+            <div class="footSub">Mons. Guillermo Ranzahuer González</div>
+          </div>
+        </div>
+        <div class="footCopy">
+          © <span id="year"></span> Casa del Migrante. Todos los derechos reservados.
+        </div>
+      </div>
+
+      <div class="footSocial">
+        <div class="footSocialTitle">Redes sociales</div>
+        <div class="footSocialLinks">
+          <!-- Facebook (ejemplo) -->
+          <a class="socialBtn" href="#" aria-label="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
+          <!-- Instagram (ejemplo) -->
+          <a class="socialBtn" href="#" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+          <!-- WhatsApp (ejemplo) -->
+          <a class="socialBtn" href="#" aria-label="WhatsApp"><i class="fa-brands fa-whatsapp"></i></a>
+        </div>
+      </div>
+
+    </div>
+  </footer>
+
+  <!-- ===== JS ===== -->
+  <script src="assets/js/shared.js"></script>
+</body>
+</html>
