@@ -19,10 +19,9 @@
   <link rel="stylesheet" href="assets/css/Inicio/footer.css">
   <link rel="stylesheet" href="assets/css/Inicio/scrollbar.css">
 
-<link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@500;700;800;900&family=Playfair+Display:wght@600;700;800&family=Poppins:wght@600;700;800&display=swap" rel="stylesheet">
-
 
   <!-- Reuso de layout -->
   <link rel="stylesheet" href="assets/css/Historia/historia.css">
@@ -107,7 +106,7 @@
 
     <section class="mxWrap">
 
-      <!-- ===== VIDEO (arriba, como bloque institucional) ===== -->
+      <!-- ===== VIDEO ===== -->
       <div class="sectionCard">
         <div class="donateHead">
           <h2 class="secTitle" style="margin:0;">Mensaje institucional</h2>
@@ -115,12 +114,10 @@
         </div>
 
         <p class="secText" style="margin-top:8px; max-width: 78ch;">
-             Video de presentación (archivo local). Cuando lo tengas, reemplaza el <code>src</code> y listo.
+          Video de presentación (archivo local). Cuando lo tengas, reemplaza el <code>src</code> y listo.
         </p>
 
-
         <div class="videoFrame donateVideo">
-          <!-- Coloca el archivo en: assets/video/donar.mp4 -->
           <video class="videoEl" controls preload="metadata">
             <source src="assets/video/donar.mp4" type="video/mp4">
             Tu navegador no soporta video HTML5.
@@ -128,11 +125,11 @@
         </div>
 
         <div class="smallNote" style="margin-top:12px;">
-          *Ejemplo de presentación. La pasarela real se configura en producción.
+          *Donación gestionada por PayPal.
         </div>
       </div>
 
-      <!-- ===== DONAR (FORM + RESUMEN tipo FM4) ===== -->
+      <!-- ===== DONAR (FORM + RESUMEN) ===== -->
       <div class="donateShell mt-6">
 
         <!-- IZQUIERDA: FORM -->
@@ -144,7 +141,7 @@
           </div>
 
           <p class="secText" style="margin-top:8px;">
-            Completa tus datos y elige el método de pago. (Demo para presentación)
+            Completa tus datos y elige el método de pago.
           </p>
 
           <!-- PASO 1: MONTO -->
@@ -209,13 +206,14 @@
               </div>
 
               <div class="payMethods" role="radiogroup" aria-label="Método de pago">
+                <!-- ✅ ESTO ES LO QUE MODIFIQUÉ: método PayPal -->
                 <label class="payCard">
-                  <input type="radio" name="payMethod" value="card" checked>
+                  <input type="radio" name="payMethod" value="paypal" checked>
                   <div class="payInner">
-                    <div class="payIcon"><i class="fa-solid fa-credit-card"></i></div>
+                    <div class="payIcon"><i class="fa-brands fa-paypal"></i></div>
                     <div>
-                      <div class="payTitle">Tarjeta</div>
-                      <div class="paySub">Visa / Mastercard (Demo)</div>
+                      <div class="payTitle">PayPal</div>
+                      <div class="paySub">Tarjeta o cuenta PayPal</div>
                     </div>
                   </div>
                 </label>
@@ -241,77 +239,43 @@
 
               <div class="donateSecure">
                 <i class="fa-solid fa-shield-heart"></i>
-                <span>Ejemplo de presentación. No se realiza ningún cobro real.</span>
+                <span>Pago seguro gestionado por PayPal.</span>
               </div>
             </div>
 
-            <!-- PASO 4: TARJETA (APARECE AL CONTINUAR) -->
+            <!-- PASO 4: PAYPAL -->
             <div class="donStep payStep" id="payStep" hidden>
               <div class="stepTitle">
                 <span class="stepNum">4</span>
-                <span>Datos de tarjeta</span>
+                <span>Donar con PayPal</span>
               </div>
 
-              <div class="cardMock">
-                <div class="cardBrand"><i class="fa-brands fa-cc-visa"></i> <i class="fa-brands fa-cc-mastercard"></i></div>
-                <div class="cardDigits" id="cardDigitsPreview">•••• •••• •••• ••••</div>
-                <div class="cardFoot">
-                  <div class="cardName" id="cardNamePreview">TITULAR</div>
-                  <div class="cardExp" id="cardExpPreview">MM/AA</div>
-                </div>
+              <div class="smallNote" style="margin-top:10px;">
+                Al dar clic, se abrirá PayPal para completar tu donación.
               </div>
 
-              <div class="fRow">
-                <label class="fLabel" for="cardNumber">Número de tarjeta</label>
-                <input class="fInput" id="cardNumber" inputmode="numeric" autocomplete="cc-number"
-                       placeholder="1234 5678 9012 3456" maxlength="19">
-              </div>
-
-              <div class="twoCols">
-                <div class="fRow">
-                  <label class="fLabel" for="cardName">Titular</label>
-                  <input class="fInput" id="cardName" autocomplete="cc-name" placeholder="Como aparece en la tarjeta">
-                </div>
-
-                <div class="fRow">
-                  <label class="fLabel" for="cardExp">Vencimiento</label>
-                  <input class="fInput" id="cardExp" inputmode="numeric" autocomplete="cc-exp"
-                         placeholder="MM/AA" maxlength="5">
-                </div>
-              </div>
-
-              <div class="twoCols">
-                <div class="fRow">
-                  <label class="fLabel" for="cardCvc">CVC</label>
-                  <input class="fInput" id="cardCvc" inputmode="numeric" autocomplete="cc-csc"
-                         placeholder="123" maxlength="4">
-                </div>
-
-                <div class="fRow">
-                  <label class="fLabel" for="cardZip">CP (opcional)</label>
-                  <input class="fInput" id="cardZip" inputmode="numeric" placeholder="Ej: 96860" maxlength="10">
-                </div>
-              </div>
-
-              <div class="donActions">
+              <!-- ✅ Botón para abrir el enlace de PayPal -->
+              <div class="donActions" style="margin-top:12px;">
                 <button class="btnGhost" type="button" id="btnBack">
                   <i class="fa-solid fa-arrow-left"></i> Regresar
                 </button>
 
-                <button class="btnPrimary" type="submit">
-                  Confirmar donación (demo) <i class="fa-solid fa-lock"></i>
-                </button>
+                <a class="btnPrimary" id="paypalDonateBtn"
+                   href="https://www.paypal.com/donate/?hosted_button_id=3DE4GHHFCE946"
+                   target="_blank" rel="noopener">
+                  Donar con PayPal <i class="fa-brands fa-paypal"></i>
+                </a>
               </div>
 
               <div class="smallNote">
-                *Campos para demostración visual (no se envían a ningún procesador real).
+                *Para registro interno, guardaremos tu información antes de enviarte a PayPal.
               </div>
             </div>
 
           </form>
         </div>
 
-        <!-- DERECHA: RESUMEN (sticky) -->
+        <!-- DERECHA: RESUMEN -->
         <aside class="sectionCard donateRight" aria-label="Resumen de donación">
           <div class="sumHead">
             <h3 class="sumTitle">Resumen</h3>
@@ -326,7 +290,7 @@
 
             <div class="sumRow">
               <span class="sumLabel">Método</span>
-              <span class="sumValue" id="sumMethod">Tarjeta</span>
+              <span class="sumValue" id="sumMethod">PayPal</span>
             </div>
 
             <div class="sumRow">
@@ -354,7 +318,7 @@
 
       </div>
 
-      <!-- ===== DATOS BANCARIOS (igual, al final) ===== -->
+      <!-- ===== DATOS BANCARIOS ===== -->
       <div class="sectionCard mt-6 bankCard">
         <div class="bankTop">
           <div>
@@ -411,7 +375,7 @@
     </section>
   </main>
 
-<!-- ✅ BOTÓN VOLVER (AQUÍ ES EL LUGAR CORRECTO) -->
+  <!-- ✅ BOTÓN VOLVER -->
   <div class="backHomeWrap">
     <a href="index.html" class="backHomeBtn">Volver al inicio</a>
   </div>
@@ -419,26 +383,46 @@
   <!-- ===== FOOTER ===== -->
   <footer class="siteFooter">
     <div class="footerInner">
-      <div>
-        <div class="footBrand">
-          <img src="assets/img/logo.png" alt="Casa del Migrante" class="footLogo">
-          <div>
-            <div class="footTitle">Casa del Migrante</div>
-            <div class="footSub">Mons. Guillermo Ranzahuer González</div>
-          </div>
-        </div>
-        <div class="footCopy">
-          © <span id="year"></span> Casa del Migrante. Todos los derechos reservados.
+      <div class="footBrand">
+        <img src="assets/img/logo.png" class="footLogo" alt="Casa del Migrante">
+        <div>
+          <div class="footTitle">Casa del Migrante</div>
+          <div class="footSub">Monseñor Guillermo Ranzahuer González — Oluta, Veracruz</div>
         </div>
       </div>
 
       <div class="footSocial">
         <div class="footSocialTitle">Redes sociales</div>
+
         <div class="footSocialLinks">
-          <a class="socialBtn" href="#" aria-label="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
-          <a class="socialBtn" href="#" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
-          <a class="socialBtn" href="#" aria-label="WhatsApp"><i class="fa-brands fa-whatsapp"></i></a>
+          <a href="https://www.facebook.com/casa.ranzahuerg/?locale=es_LA"
+             target="_blank"
+             rel="noopener"
+             aria-label="Facebook"
+             class="socialBtn">
+            <i class="fa-brands fa-facebook-f"></i>
+          </a>
+
+          <a href="https://www.instagram.com/casa.ranzahuer"
+             target="_blank"
+             rel="noopener"
+             aria-label="Instagram"
+             class="socialBtn">
+            <i class="fa-brands fa-instagram"></i>
+          </a>
+
+          <a href="https://wa.me/529241790614?text=Hola%20quiero%20informacion%20sobre%20la%20Casa%20del%20Migrante"
+             target="_blank"
+             rel="noopener"
+             aria-label="WhatsApp"
+             class="socialBtn">
+            <i class="fa-brands fa-whatsapp"></i>
+          </a>
         </div>
+      </div>
+
+      <div class="footCopy">
+        © <span id="year"></span> Casa del Migrante Mons. Guillermo Ranzahuer González · Todos los derechos reservados
       </div>
     </div>
   </footer>

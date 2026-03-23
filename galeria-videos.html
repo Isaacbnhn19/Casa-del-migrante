@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Nuestro equipo | Casa del Migrante</title>
+  <title>Galería de videos | Casa del Migrante</title>
 
   <link rel="icon" type="image/png" href="assets/img/logo.png" />
 
@@ -12,12 +12,12 @@
   <link rel="stylesheet"
         href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
 
-  <!-- ✅ FUENTES SOLO PARA ESTA PÁGINA -->
+  <!-- Fuentes -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@500;700;800;900&family=Playfair+Display:wght@600;700;800&family=Poppins:wght@600;700;800&display=swap" rel="stylesheet">
 
-  <!-- ===== CSS GLOBAL (igual que tus otras páginas) ===== -->
+  <!-- CSS GLOBAL -->
   <link rel="stylesheet" href="assets/css/Inicio/variables.css">
   <link rel="stylesheet" href="assets/css/Inicio/base.css">
   <link rel="stylesheet" href="assets/css/Inicio/cards.css">
@@ -25,11 +25,121 @@
   <link rel="stylesheet" href="assets/css/Inicio/footer.css">
   <link rel="stylesheet" href="assets/css/Inicio/scrollbar.css">
 
-  <!-- Layout/tipografías reutilizadas -->
+  <!-- Layout base reutilizado -->
   <link rel="stylesheet" href="assets/css/Historia/historia.css">
 
-  <!-- ✅ CSS SOLO DE EQUIPO -->
-  <link rel="stylesheet" href="assets/css/Historia/equipo.css">
+  <style>
+    .videoGallery{
+      display: grid;
+      gap: 28px;
+    }
+
+    .videoBlock{
+      display: grid;
+      gap: 14px;
+    }
+
+    .videoTitleCustom{
+      margin: 0;
+      font-family: "Poppins", "Inter", sans-serif;
+      font-size: clamp(1.3rem, 2vw, 2rem);
+      font-weight: 800;
+      color: var(--ink, #173052);
+      line-height: 1.2;
+    }
+
+    .videoLead{
+      margin: 0;
+      color: var(--muted, #5f6f86);
+      line-height: 1.7;
+      font-size: 1rem;
+    }
+
+    .videoFrameWrap{
+      width: 100%;
+      border-radius: 22px;
+      overflow: hidden;
+      border: 1px solid rgba(26, 56, 110, .12);
+      background: rgba(255,255,255,.72);
+      box-shadow: 0 14px 35px rgba(20, 36, 70, .08);
+    }
+
+    .videoFrame{
+      position: relative;
+      width: 100%;
+      aspect-ratio: 16 / 9;
+      min-height: 420px;
+      background: #0f1726;
+    }
+
+    .videoFrame iframe{
+      width: 100%;
+      height: 100%;
+      border: 0;
+      display: block;
+    }
+
+    .videoPlaceholder{
+      width: 100%;
+      height: 100%;
+      min-height: 420px;
+      display: grid;
+      place-items: center;
+      text-align: center;
+      padding: 30px;
+      color: #fff;
+      background:
+        radial-gradient(circle at top left, rgba(179,204,246,.18), transparent 30%),
+        radial-gradient(circle at bottom right, rgba(173,132,227,.18), transparent 34%),
+        linear-gradient(135deg, #10203c 0%, #1a386e 100%);
+    }
+
+    .videoPlaceholderInner{
+      max-width: 760px;
+    }
+
+    .videoPlaceholderIcon{
+      width: 74px;
+      height: 74px;
+      margin: 0 auto 18px;
+      border-radius: 50%;
+      display: grid;
+      place-items: center;
+      font-size: 1.5rem;
+      background: rgba(255,255,255,.14);
+      border: 1px solid rgba(255,255,255,.18);
+      box-shadow: 0 10px 30px rgba(0,0,0,.12);
+    }
+
+    .videoPlaceholder h3{
+      margin: 0 0 10px;
+      font-family: "Poppins", "Inter", sans-serif;
+      font-size: clamp(1.2rem, 2vw, 1.8rem);
+      font-weight: 800;
+      line-height: 1.2;
+    }
+
+    .videoPlaceholder p{
+      margin: 0;
+      color: rgba(255,255,255,.92);
+      line-height: 1.8;
+      font-size: 1rem;
+    }
+
+    @media (max-width: 900px){
+      .videoFrame,
+      .videoPlaceholder{
+        min-height: 320px;
+      }
+    }
+
+    @media (max-width: 700px){
+      .videoFrame,
+      .videoPlaceholder{
+        min-height: 240px;
+      }
+    }
+  </style>
 </head>
 
 <body class="pageEquipo">
@@ -97,98 +207,73 @@
   <main class="pageWrap">
     <section class="pageHero">
       <div class="pageHeroInner">
-        <p class="pageKicker">CONÓCENOS</p>
-        <h1 class="pageTitle">Nuestro equipo 🤝</h1>
+        <p class="pageKicker">ACTUALIDAD</p>
+        <h1 class="pageTitle">Galería de videos 🎥</h1>
         <p class="pageLead">
-          Estructura organizacional y roles clave para la atención y acompañamiento.
+          Conoce más de nuestra labor, nuestras actividades y el impacto de la solidaridad en Casa del Migrante.
         </p>
       </div>
     </section>
 
     <section class="mxWrap">
 
-      <!-- ✅ ORGANIGRAMA EN “DIAGRAMA” (no lista) -->
       <div class="sectionCard">
         <div class="impactHead">
-          <div>
-            <h2 class="secTitle" style="margin:0;">Equipo</h2>
-          </div>
-          <span class="badgeSoft"><i class="fa-solid fa-sitemap"></i> Organigrama</span>
         </div>
 
-        <div class="orgChart" aria-label="Organigrama del equipo">
+        <div class="videoGallery">
 
-          <!-- ✅ Esto fue lo que modifiqué:
-               Quité TODOS los bloques .orgName para que solo se vean los puestos -->
+          <!-- VIDEO 1 -->
+          <article class="videoBlock">
+            <h3 class="videoTitleCustom">¡Esto somos, esto es Casa Ranzahuer!</h3>
+            <p class="videoLead">
+              Un vistazo a la esencia y al trabajo que se realiza en la Casa del Migrante Mons. Guillermo Ranzahuer González.
+            </p>
 
-          <!-- NIVEL 1 -->
-          <div class="orgLevel level1">
-            <article class="orgNode isTop">
-              <div class="orgIcon"><i class="fa-solid fa-user-tie"></i></div>
-              <div class="orgText">
-                <div class="orgRole">Dirección</div>
-                <!-- <div class="orgName">Ramiro Baxin Ixtepan</div> -->
+            <div class="videoFrameWrap">
+              <div class="videoFrame">
+                <iframe
+                  src="https://www.youtube.com/embed/10iAslXdG7k"
+                  title="¡Esto somos, esto es Casa Ranzahuer!"
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                  allowfullscreen>
+                </iframe>
               </div>
-            </article>
-          </div>
+            </div>
+          </article>
 
-          <div class="orgConnector"></div>
+          <!-- VIDEO 2 -->
+          <article class="videoBlock">
+            <h3 class="videoTitleCustom">Gracias por su solidaridad y hospitalidad #CasaRanzahuer</h3>
+            <p class="videoLead">
+            </p>
 
-          <!-- NIVEL 2 -->
-          <div class="orgLevel level2">
-            <article class="orgNode">
-              <div class="orgIcon"><i class="fa-solid fa-diagram-project"></i></div>
-              <div class="orgText">
-                <div class="orgRole">Coordinadora general</div>
-                <!-- <div class="orgName">Ma. del Rocío Hernández Lucho</div> -->
+            <div class="videoFrameWrap">
+              <div class="videoPlaceholder">
+                <div class="videoPlaceholderInner">
+                  <div class="videoPlaceholderIcon">
+                    <i class="fa-solid fa-video"></i>
+                  </div>
+                  <h3>Espacio listo para el segundo video</h3>
+                </div>
               </div>
-            </article>
+            </div>
 
-            <article class="orgNode">
-              <div class="orgIcon"><i class="fa-solid fa-hand-holding-medical"></i></div>
-              <div class="orgText">
-                <div class="orgRole">Atención médica</div>
-                <!-- <div class="orgName">Nombre Apellido</div> -->
+            <!--
+            CUANDO TENGAS LA LIGA DEL SEGUNDO VIDEO, REEMPLAZA EL BLOQUE DE ARRIBA POR ESTE:
+
+            <div class="videoFrameWrap">
+              <div class="videoFrame">
+                <iframe
+                  src="https://www.youtube.com/embed/AQUI_TU_ID"
+                  title="Gracias por su solidaridad y hospitalidad #CasaRanzahuer"
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                  allowfullscreen>
+                </iframe>
               </div>
-            </article>
-
-            <article class="orgNode">
-              <div class="orgIcon"><i class="fa-solid fa-brain"></i></div>
-              <div class="orgText">
-                <div class="orgRole">Apoyo psicológico</div>
-                <!-- <div class="orgName">Nombre Apellido</div> -->
-              </div>
-            </article>
-          </div>
-
-          <div class="orgConnector"></div>
-
-          <!-- NIVEL 3 -->
-          <div class="orgLevel level3">
-            <article class="orgNode">
-              <div class="orgIcon"><i class="fa-solid fa-layer-group"></i></div>
-              <div class="orgText">
-                <div class="orgRole">Coordinadora de Áreas</div>
-                <!-- <div class="orgName">Keila Isui Garcia Hernández</div> -->
-              </div>
-            </article>
-
-            <article class="orgNode">
-              <div class="orgIcon"><i class="fa-solid fa-scale-balanced"></i></div>
-              <div class="orgText">
-                <div class="orgRole">Paralegal</div>
-                <!-- <div class="orgName">Abel Hernández Soto</div> -->
-              </div>
-            </article>
-
-            <article class="orgNode">
-              <div class="orgIcon"><i class="fa-solid fa-hand-holding-heart"></i></div>
-              <div class="orgText">
-                <div class="orgRole">Trabajo Social</div>
-                <!-- <div class="orgName">Karen I. Comezaña Bermejo</div> -->
-              </div>
-            </article>
-          </div>
+            </div>
+            -->
+          </article>
 
         </div>
       </div>
@@ -196,7 +281,7 @@
     </section>
   </main>
 
-  <!-- ✅ BOTÓN VOLVER -->
+  <!-- BOTÓN VOLVER -->
   <div class="backHomeWrap">
     <a href="index.html" class="backHomeBtn">Volver al inicio</a>
   </div>

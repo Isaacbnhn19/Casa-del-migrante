@@ -21,10 +21,9 @@
   <link rel="stylesheet" href="assets/css/Inicio/footer.css">
   <link rel="stylesheet" href="assets/css/Inicio/scrollbar.css">
 
-<link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@500;700;800;900&family=Playfair+Display:wght@600;700;800&family=Poppins:wght@600;700;800&display=swap" rel="stylesheet">
-
 
   <!-- Layout/tipografías reutilizadas -->
   <link rel="stylesheet" href="assets/css/Historia/historia.css">
@@ -114,33 +113,6 @@
 
     <section class="mxWrap">
 
-      <!-- Acciones rápidas -->
-      <div class="sectionCard contactQuick">
-        <div class="quickLeft">
-          <h2 class="secTitle" style="margin:0;">Acciones rápidas</h2>
-          <p class="secText" style="margin:6px 0 0;">
-            Copia un correo, abre WhatsApp o navega en Google Maps.
-          </p>
-        </div>
-
-        <div class="quickBtns">
-          <!-- NOTA: WhatsApp es ejemplo, cámbialo cuando tengas el número real -->
-          <a class="qBtn" href="https://wa.me/5210000000000" target="_blank" rel="noopener">
-            <i class="fa-brands fa-whatsapp"></i> WhatsApp
-          </a>
-
-          <a class="qBtn" href="https://www.google.com/maps" target="_blank" rel="noopener">
-            <i class="fa-solid fa-map-location-dot"></i> Abrir Maps
-          </a>
-
-          <button class="qBtn qBtnGhost" type="button" id="copyMainMail">
-            <i class="fa-solid fa-copy"></i> Copiar correo general
-          </button>
-        </div>
-
-        <div class="copyHint" id="copyHint" aria-live="polite"></div>
-      </div>
-
       <!-- 2 columnas: Organigrama + Formulario -->
       <div class="contactGrid mt-6">
 
@@ -149,6 +121,7 @@
           <h2 class="secTitle">Contactanos 🧩</h2>
 
           <div class="teamList">
+            <!-- ✅ esto es lo que modifiqué: dejé SOLO 2 contactos (Ramiro y Rocío) -->
 
             <div class="teamRow">
               <div class="role">
@@ -161,10 +134,9 @@
               <div class="actions">
                 <span class="emailText">misericorde.mig777@gmail.com</span>
                 <button class="iconBtn" type="button" data-copy="misericorde.mig777@gmail.com" aria-label="Copiar correo">
-                <i class="fa-solid fa-copy"></i>
-             </button>
-            </div>
-
+                  <i class="fa-solid fa-copy"></i>
+                </button>
+              </div>
             </div>
 
             <div class="teamRow">
@@ -178,67 +150,19 @@
               <div class="actions">
                 <span class="emailText">Rocio.luher@gmail.com</span>
                 <button class="iconBtn" type="button" data-copy="Rocio.luher@gmail.com" aria-label="Copiar correo">
-                <i class="fa-solid fa-copy"></i>
-             </button>
-            </div>
-            </div>
-
-            <div class="teamRow">
-              <div class="role">
-                <i class="fa-solid fa-sitemap"></i>
-                <div>
-                  <div class="roleTop">Keila Isui Gracia Hernández</div>
-                  <div class="roleSub">Coordinadora de áreas</div>
-                </div>
+                  <i class="fa-solid fa-copy"></i>
+                </button>
               </div>
-              <div class="actions">
-                <span class="emailText">Keila.ranzahuer@gmail.com</span>
-                <button class="iconBtn" type="button" data-copy="Keila.ranzahuer@gmail.com" aria-label="Copiar correo">
-                <i class="fa-solid fa-copy"></i>
-             </button>
-            </div>
-            </div>
-
-            <div class="teamRow">
-              <div class="role">
-                <i class="fa-solid fa-scale-balanced"></i>
-                <div>
-                  <div class="roleTop">Abel Hernández Soto</div>
-                  <div class="roleSub">Paralegal</div>
-                </div>
-              </div>
-              <div class="actions">
-                <span class="emailText">Abel.ranzahuer@gmail.com</span>
-                <button class="iconBtn" type="button" data-copy="Abel.ranzahuer@gmail.com" aria-label="Copiar correo">
-                <i class="fa-solid fa-copy"></i>
-             </button>
-            </div>
-            </div>
-
-            <div class="teamRow">
-              <div class="role">
-                <i class="fa-solid fa-hand-holding-heart"></i>
-                <div>
-                  <div class="roleTop">Karen I. Comezaña Bermejo</div>
-                  <div class="roleSub">Trabajo social</div>
-                </div>
-              </div>
-              <div class="actions">
-                <span class="emailText">Trabajosocial.ranzahuer1@gmail.com</span>
-                <button class="iconBtn" type="button" data-copy="Trabajosocial.ranzahuer@gmail.com" aria-label="Copiar correo">
-                <i class="fa-solid fa-copy"></i>
-             </button>
-            </div>
             </div>
 
           </div>
         </div>
 
-        <!-- Formulario (demo) -->
+        <!-- Formulario (REAL) -->
         <div class="sectionCard">
           <h2 class="secTitle">Escríbenos 📝</h2>
           <p class="secText">
-            Formulario de ejemplo para presentación (muestra “enviado”, no manda correo real).
+            En breve contestaremos tu mensaje 😊 .
           </p>
 
           <form class="contactForm" id="contactForm">
@@ -258,7 +182,7 @@
             </div>
 
             <div class="fActions">
-              <button class="btnPrimary" type="submit">
+              <button class="btnPrimary" type="submit" id="sendBtn">
                 Enviar <i class="fa-solid fa-paper-plane"></i>
               </button>
               <span class="formStatus" id="formStatus" aria-live="polite"></span>
@@ -270,7 +194,7 @@
       </div>
 
       <!-- Mapa -->
-      <div class="sectionCard mt-6">
+      <div class="sectionCard mt-6" style="margin-top: 40px;">
         <div class="mapHead">
           <div>
             <h2 class="secTitle" style="margin:0;">Ubicación 📍</h2>
@@ -284,7 +208,6 @@
         </div>
 
         <div class="mapFrame" aria-label="Mapa">
-          <!-- Tu iframe (sin tocar) -->
           <iframe
             src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3795.9279516336906!2d-94.90388332576046!3d17.93551408678552!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x85ea03d29c2b724b%3A0x3f36cc4024ca2af1!2sCasa%20del%20Migrante%20Mons.%20Guillermo%20Ranzahuer%20Gonzalez!5e0!3m2!1ses!2smx!4v1770328120254!5m2!1ses!2smx"
             width="600" height="450" style="border:0;"
@@ -296,45 +219,74 @@
     </section>
   </main>
 
-<!-- ✅ BOTÓN VOLVER (AQUÍ ES EL LUGAR CORRECTO) -->
+  <!-- ✅ BOTÓN VOLVER -->
   <div class="backHomeWrap">
     <a href="index.html" class="backHomeBtn">Volver al inicio</a>
   </div>
-  
+
   <!-- ===== FOOTER ===== -->
   <footer class="siteFooter">
     <div class="footerInner">
-
-      <div>
-        <div class="footBrand">
-          <img src="assets/img/logo.png" alt="Casa del Migrante" class="footLogo">
-          <div>
-            <div class="footTitle">Casa del Migrante</div>
-            <div class="footSub">Mons. Guillermo Ranzahuer González</div>
-          </div>
-        </div>
-        <div class="footCopy">
-          © <span id="year"></span> Casa del Migrante. Todos los derechos reservados.
+      <div class="footBrand">
+        <img src="assets/img/logo.png" class="footLogo" alt="Casa del Migrante">
+        <div>
+          <div class="footTitle">Casa del Migrante</div>
+          <div class="footSub">Monseñor Guillermo Ranzahuer González — Oluta, Veracruz</div>
         </div>
       </div>
 
       <div class="footSocial">
         <div class="footSocialTitle">Redes sociales</div>
+
         <div class="footSocialLinks">
-          <!-- Facebook (ejemplo) -->
-          <a class="socialBtn" href="#" aria-label="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
-          <!-- Instagram (ejemplo) -->
-          <a class="socialBtn" href="#" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
-          <!-- WhatsApp (ejemplo) -->
-          <a class="socialBtn" href="#" aria-label="WhatsApp"><i class="fa-brands fa-whatsapp"></i></a>
+          <a href="https://www.facebook.com/casa.ranzahuerg/?locale=es_LA"
+             target="_blank"
+             rel="noopener"
+             aria-label="Facebook"
+             class="socialBtn">
+            <i class="fa-brands fa-facebook-f"></i>
+          </a>
+
+          <a href="https://www.instagram.com/casa.ranzahuer"
+             target="_blank"
+             rel="noopener"
+             aria-label="Instagram"
+             class="socialBtn">
+            <i class="fa-brands fa-instagram"></i>
+          </a>
+
+          <a href="https://wa.me/529241790614?text=Hola%20quiero%20informacion%20sobre%20la%20Casa%20del%20Migrante"
+             target="_blank"
+             rel="noopener"
+             aria-label="WhatsApp"
+             class="socialBtn">
+            <i class="fa-brands fa-whatsapp"></i>
+          </a>
         </div>
       </div>
 
+      <div class="footCopy">
+        © <span id="year"></span> Casa del Migrante Mons. Guillermo Ranzahuer González · Todos los derechos reservados
+      </div>
     </div>
   </footer>
 
   <!-- ===== JS ===== -->
   <script src="assets/js/shared.js"></script>
+
+  <!-- ✅ EmailJS CDN -->
+  <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+
+  <!-- ✅ Config EmailJS -->
+  <script>
+    window.EMAILJS_PUBLIC_KEY = "lgaX5cfjrpei2Z1Rn";
+    window.EMAILJS_SERVICE_ID = "service_7olj4wq";
+    window.EMAILJS_TEMPLATE_ID = "template_9qkwjoq";
+    window.CONTACT_TO_EMAIL = "casadelmigranter@gmail.com";
+
+    emailjs.init(window.EMAILJS_PUBLIC_KEY);
+  </script>
+
   <script src="assets/js/contacto.js"></script>
 </body>
 </html>

@@ -1,8 +1,5 @@
 /* =========================================================
    equipo.css (SOLO para equipo.html)
-   - Menú: Inter
-   - Marca (logo + nombre): vuelve a la fuente ORIGINAL del sitio
-   - Título grande (pageTitle "Nuestro equipo"): Calibri
    - Organigrama: diagrama con nodos y conectores
 ========================================================= */
 
@@ -15,7 +12,6 @@
   text-align: center;
 }
 
-
 .orgChart{
   margin-top: 16px;
   position: relative;
@@ -27,6 +23,7 @@
   gap: 14px;
   flex-wrap: wrap;
   position: relative;
+  align-items: flex-start; /* (se queda) */
 }
 
 .orgConnector{
@@ -72,8 +69,14 @@
   box-shadow: 0 18px 44px rgba(20,36,70,.10);
   display:flex;
   gap: 12px;
-  align-items:flex-start;
+
+  /* ✅ Esto fue lo que modifiqué:
+     Antes estaba align-items:flex-start;
+     Ahora centramos verticalmente el texto con el icono (ya no se ve “arriba” con espacio abajo). */
+  align-items: center;
+
   transition: transform .16s ease, box-shadow .16s ease, border-color .16s ease;
+  height: auto;
 }
 
 .orgNode:hover{
@@ -82,9 +85,14 @@
   box-shadow: 0 26px 62px rgba(20,36,70,.14);
 }
 
-/* Nodo top */
+/* ✅ Esto fue lo que modifiqué:
+   Reducimos el ancho del nodo superior
+   y lo mantenemos centrado dentro del nivel */
 .orgNode.isTop{
-  width: min(420px, 100%);
+  width: fit-content;
+  min-width: 220px;   /* evita que quede demasiado pequeño */
+  max-width: 320px;   /* mantiene proporción con los demás */
+  margin: 0 auto;     /* lo mantiene centrado perfectamente */
 }
 
 /* Icono */
@@ -100,7 +108,15 @@
   flex: 0 0 auto;
 }
 
-.orgText{ min-width: 0; }
+/* ✅ Esto fue lo que modifiqué:
+   Hacemos que el contenedor del texto se centre y use la misma altura “visual” del icono */
+.orgText{
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  min-height: 48px; /* igual al alto del icono */
+}
 
 /* PUESTO */
 .orgRole{
@@ -108,9 +124,13 @@
   font-weight: 900;
   color: rgba(20,36,70,.92);
   font-size: 14px;
+
+  /* ✅ Esto fue lo que modifiqué:
+     Mejor alineación vertical (evita que se “pegue arriba” visualmente). */
+  line-height: 1.25;
 }
 
-/* NOMBRE */
+/* NOMBRE (ya no se usa, pero lo dejamos por si en el futuro se vuelve a activar) */
 .orgName{
   margin-top: 6px;
   font-family: "Inter", system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;

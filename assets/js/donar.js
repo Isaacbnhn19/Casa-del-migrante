@@ -1,9 +1,11 @@
 /* =========================================================
-   DONAR (demo tipo FM4) + Registro real en PostgreSQL
+   DONAR + Registro en PostgreSQL (intención)
    - Montos: botones + monto custom
    - Resumen sticky que se actualiza
-   - Continuar: muestra campos de tarjeta si método=tarjeta
-   - Confirmar: registra en /api/donations (PostgreSQL)
+   - Continuar:
+       - Transferencia -> baja a datos bancarios
+       - PayPal -> muestra botón PayPal (abre link)
+   - Registro: POST /api/donations (antes de mandar a PayPal)
    - Copiar cuenta/CLABE
 ========================================================= */
 
@@ -29,14 +31,8 @@
   const sumMethod = document.getElementById("sumMethod");
   const sumHint = document.getElementById("sumHint");
 
-  // Card preview
-  const cardNumber = document.getElementById("cardNumber");
-  const cardName = document.getElementById("cardName");
-  const cardExp = document.getElementById("cardExp");
-  const cardDigitsPreview = document.getElementById("cardDigitsPreview");
-  const cardNamePreview = document.getElementById("cardNamePreview");
-  const cardExpPreview = document.getElementById("cardExpPreview");
-  const cardCvc = document.getElementById("cardCvc");
+  // PayPal button link
+  const paypalDonateBtn = document.getElementById("paypalDonateBtn");
 
   // 👇 Para evitar doble submit
   let isSubmitting = false;
@@ -48,13 +44,17 @@
   }
 
   function getMethodLabel(){
-    const v = methodInputs.find(i => i.checked)?.value || "card";
-    return v === "card" ? "Tarjeta" : "Transferencia";
+    const v = methodInputs.find(i => i.checked)?.value || "paypal";
+    if (v === "transfer") return "Transferencia";
+    if (v === "paypal") return "PayPal";
+    return "PayPal";
   }
 
   function getMethodCode(){
-    const v = methodInputs.find(i => i.checked)?.value || "card";
-    return v === "card" ? "card" : "transfer";
+    const v = methodInputs.find(i => i.checked)?.value || "paypal";
+    if (v === "transfer") return "transfer";
+    if (v === "paypal") return "paypal";
+    return "paypal";
   }
 
   function getAmount(){
@@ -73,7 +73,7 @@
     if (sumHint){
       if (amt <= 0) sumHint.textContent = "Completa el monto para continuar.";
       else if (method === "Transferencia") sumHint.textContent = "Puedes usar los datos bancarios al final.";
-      else sumHint.textContent = "Continúa para capturar los datos de tarjeta (demo).";
+      else sumHint.textContent = "Continúa para donar con PayPal.";
     }
   }
 
@@ -97,8 +97,59 @@
   // Method change
   methodInputs.forEach((i) => i.addEventListener("change", updateSummary));
 
+  // Helpers para leer datos del donante
+  function pickField(selectors){
+    for (const sel of selectors){
+      const el = form?.querySelector(sel) || document.querySelector(sel);
+      if (el) return el;
+    }
+    return null;
+  }
+
+  function getDonorData(){
+    const nameEl = pickField(['[name="name"]', '#donName']);
+    const phoneEl = pickField(['[name="phone"]', '#donPhone']);
+    const emailEl = pickField(['[name="email"]', '#donEmail']);
+    const msgEl = pickField(['[name="message"]', '#donMsg', 'textarea']);
+
+    return {
+      name: String(nameEl?.value || "").trim(),
+      phone: String(phoneEl?.value || "").trim(),
+      email: String(emailEl?.value || "").trim(),
+      message: String(msgEl?.value || "").trim(),
+    };
+  }
+
+  async function registerDonationIntent(){
+    const amt = getAmount();
+    const methodCode = getMethodCode();
+    const donor = getDonorData();
+
+    if (amt <= 0) throw new Error("Por favor elige un monto.");
+    if (!donor.name || !donor.email) throw new Error("Completa tu nombre y correo.");
+
+    const res = await fetch("/api/donations", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({
+        name: donor.name,
+        phone: donor.phone,
+        email: donor.email,
+        message: donor.message,
+        amount: amt,
+        payment_method: methodCode, // paypal | transfer
+      }),
+    });
+
+    const data = await res.json().catch(() => ({}));
+    if (!res.ok || !data?.ok){
+      throw new Error(data?.error || "No se pudo registrar la donación.");
+    }
+    return data;
+  }
+
   // Continue to payment
-  btnContinue?.addEventListener("click", () => {
+  btnContinue?.addEventListener("click", async () => {
     const amt = getAmount();
     const method = getMethodLabel();
 
@@ -116,9 +167,10 @@
       return;
     }
 
+    // PayPal
     payStep?.removeAttribute("hidden");
     payStep?.scrollIntoView({ behavior: "smooth", block: "start" });
-    setStatus("Completa los datos de tarjeta (demo).");
+    setStatus("Listo. Da clic en “Donar con PayPal”.");
   });
 
   btnBack?.addEventListener("click", () => {
@@ -127,154 +179,30 @@
     setStatus("");
   });
 
-  // Card formatting helpers (demo)
-  function formatCardDigits(value){
-    const digits = value.replace(/\D/g, "").slice(0, 16);
-    const groups = digits.match(/.{1,4}/g) || [];
-    return groups.join(" ").trim();
-  }
-
-  function formatExp(value){
-    const digits = value.replace(/\D/g, "").slice(0, 4);
-    if (digits.length <= 2) return digits;
-    return `${digits.slice(0,2)}/${digits.slice(2)}`;
-  }
-
-  cardNumber?.addEventListener("input", () => {
-    cardNumber.value = formatCardDigits(cardNumber.value);
-    const v = cardNumber.value.replace(/\s/g, "");
-    const tail = v.slice(-4);
-    cardDigitsPreview.textContent = v.length ? `•••• •••• •••• ${tail.padStart(4,"•")}` : "•••• •••• •••• ••••";
-  });
-
-  cardName?.addEventListener("input", () => {
-    const v = (cardName.value || "").trim();
-    cardNamePreview.textContent = v ? v.toUpperCase().slice(0, 18) : "TITULAR";
-  });
-
-  cardExp?.addEventListener("input", () => {
-    cardExp.value = formatExp(cardExp.value);
-    const v = (cardExp.value || "").trim();
-    cardExpPreview.textContent = v || "MM/AA";
-  });
-
-  cardCvc?.addEventListener("input", () => {
-    cardCvc.value = cardCvc.value.replace(/\D/g, "").slice(0, 4);
-  });
-
-  // Helpers para leer datos del donante SIN depender de IDs exactos
-  function pickField(selectors){
-    for (const sel of selectors){
-      const el = form?.querySelector(sel) || document.querySelector(sel);
-      if (el) return el;
-    }
-    return null;
-  }
-
-  function getDonorData(){
-    // Busca por name="", y si no, por IDs comunes
-    const nameEl = pickField(['[name="name"]', '#name', '#donName', '#donorName', '#fullName']);
-    const phoneEl = pickField(['[name="phone"]', '#phone', '#donPhone', '#donorPhone', '#tel']);
-    const emailEl = pickField(['[name="email"]', '#email', '#donEmail', '#donorEmail']);
-    const msgEl = pickField(['[name="message"]', '#message', '#donMessage', '#donorMessage', 'textarea']);
-
-    return {
-      name: String(nameEl?.value || "").trim(),
-      phone: String(phoneEl?.value || "").trim(),
-      email: String(emailEl?.value || "").trim(),
-      message: String(msgEl?.value || "").trim(),
-    };
-  }
-
-  function resetUIAfterSuccess(){
-    form.reset();
-    payStep?.setAttribute("hidden", "true");
-    amtBtns.forEach(b => b.classList.remove("active"));
-    if (cardDigitsPreview) cardDigitsPreview.textContent = "•••• •••• •••• ••••";
-    if (cardNamePreview) cardNamePreview.textContent = "TITULAR";
-    if (cardExpPreview) cardExpPreview.textContent = "MM/AA";
-    updateSummary();
-  }
-
-  // ✅ Submit: REGISTRA EN POSTGRESQL
-  form?.addEventListener("submit", async (e) => {
+  // ✅ Al dar clic en “Donar con PayPal”: registrar en BD y abrir PayPal
+  paypalDonateBtn?.addEventListener("click", async (e) => {
     e.preventDefault();
     if (isSubmitting) return;
 
-    const amt = getAmount();
-    if (amt <= 0){
-      setStatus("Por favor elige un monto.");
-      return;
-    }
-
-    const methodCode = getMethodCode(); // "card" | "transfer"
-    const donor = getDonorData();
-
-    // Validación mínima (tu backend exige name, email, amount)
-    if (!donor.name || !donor.email){
-      setStatus("Por favor completa tu nombre y correo para registrar la donación.");
-      return;
-    }
-
-    // Si es tarjeta, validación demo mínima (no guardamos tarjeta, solo validamos)
-    if (methodCode === "card"){
-      const digits = (cardNumber?.value || "").replace(/\s/g, "");
-      const exp = (cardExp?.value || "").trim();
-      const cvc = (cardCvc?.value || "").trim();
-
-      if (digits.length < 13 || digits.length > 16){
-        setStatus("Revisa el número de tarjeta (demo).");
-        return;
-      }
-      if (exp.length < 4){
-        setStatus("Revisa la fecha MM/AA (demo).");
-        return;
-      }
-      if (cvc.length < 3){
-        setStatus("Revisa el CVC (demo).");
-        return;
-      }
-    }
-
     try{
       isSubmitting = true;
-      setStatus("Procesando donación…");
+      setStatus("Registrando donación…");
 
-      const res = await fetch("/api/donations", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({
-          name: donor.name,
-          phone: donor.phone,
-          email: donor.email,
-          message: donor.message,
-          amount: amt,
-          payment_method: methodCode, // ✅ queda en la BD (si tienes la columna)
-        }),
-      });
+      await registerDonationIntent();
 
-      const data = await res.json().catch(() => ({}));
+      setStatus("✅ Registro guardado. Abriendo PayPal…");
+      // abre el enlace en nueva pestaña
+      window.open(paypalDonateBtn.href, "_blank", "noopener");
 
-      if (!res.ok || !data?.ok){
-        const msg = data?.error || "No se pudo registrar la donación.";
-        setStatus(`❌ ${msg}`);
-        isSubmitting = false;
-        return;
-      }
-
-      // Éxito
-      setStatus("✅ Donación registrada. ¡Gracias por tu apoyo!");
-      resetUIAfterSuccess();
-
-      setTimeout(() => setStatus(""), 3000);
+      setTimeout(() => setStatus(""), 2500);
     } catch (err){
-      setStatus("❌ Error de red. Verifica que el servidor esté corriendo.");
+      setStatus(`❌ ${err?.message || "No se pudo registrar."}`);
     } finally{
       isSubmitting = false;
     }
   });
 
-  // Copy bank helpers
+  // Copiar cuenta/CLABE
   const hint = document.getElementById("bankHint");
 
   function flash(msg){

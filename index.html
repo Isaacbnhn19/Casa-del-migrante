@@ -23,13 +23,14 @@
   <!-- LOGO ESTÁTICO (NO sticky) -->
   <div class="logoTop" id="inicio">
     <div class="logoTopInner">
-      <a class="brand brandStatic" href="index.html">
-        <img src="assets/img/logo.png" alt="Casa del Migrante" class="brandLogo">
-        <div class="brandText">
-          <div class="brandTop">Casa del Migrante</div>
-          <div class="brandBottom">Monseñor Guillermo Ranzahuer González</div>
-        </div>
-      </a>
+      <!-- ✅ MODIFICADO: este logo ahora también funciona como acceso oculto con doble clic -->
+      <a class="brand brandStatic" href="index.html" id="secretLogo">
+      <img src="assets/img/logo.png" alt="Casa del Migrante" class="brandLogo">
+  <div class="brandText">
+    <div class="brandTop">Casa del Migrante</div>
+    <div class="brandBottom">Monseñor Guillermo Ranzahuer González</div>
+  </div>
+</a>
     </div>
   </div>
 
@@ -83,11 +84,13 @@
         </ul>
       </nav>
 
+      <!-- ✅ ELIMINADO: botón visible de iniciar sesión
       <div class="headerActions">
         <a class="btnLogin" href="/login.html">
           <i class="fa-solid fa-right-to-bracket mr-2"></i> Iniciar sesión
         </a>
       </div>
+      -->
 
     </div>
   </header>
@@ -166,19 +169,19 @@
                 <img src="assets/img/carousel/por2.jpg" alt="Actividad 2" />
               </div>
               <div class="carSlide">
-                <img src="assets/img/carousel/por3.jpg" alt="Actividad 3" />
+                <img src="assets/img/carousel/por3.jpeg" alt="Actividad 3" />
               </div>
               <div class="carSlide">
-                <img src="assets/img/carousel/por4.jpg" alt="Actividad 3" />
+                <img src="assets/img/carousel/por4.jpeg" alt="Actividad 4" />
               </div>
               <div class="carSlide">
-                <img src="assets/img/carousel/por5.jpeg" alt="Actividad 3" />
+                <img src="assets/img/carousel/por5.jpeg" alt="Actividad 5" />
               </div>
               <div class="carSlide">
-                <img src="assets/img/carousel/por6.jpeg" alt="Actividad 3" />
+                <img src="assets/img/carousel/por6.jpeg" alt="Actividad 6" />
               </div>
               <div class="carSlide">
-                <img src="assets/img/carousel/por7.jpeg" alt="Actividad 3" />
+                <img src="assets/img/carousel/por7.jpeg" alt="Actividad 7" />
               </div>
             </div>
           </div>
@@ -193,22 +196,31 @@
     </section>
 
     <!-- VIDEO (mismo tamaño visual que el carrusel) -->
-    <section class="mx-auto max-w-7xl px-4 pb-14">
-      <div class="sectionCard">
-        <div class="flex items-center justify-between flex-wrap gap-3">
-          <div>
-            <h2 class="secTitle">Conoce la Casa del Migrante en un vistazo</h2>
-          </div>
-          <a class="badgeSoft badgeLink" href="galeria-videos.html">Ver galería<i class="fa-solid fa-arrow-right"></i></a>
-        </div>
-        <div class="videoFrame mt-6">
-          <video class="videoEl" controls preload="metadata" poster="assets/img/video-poster.png">
-            <source src="assets/videos/casa-ranzahuer.mp4" type="video/mp4" />
-            Tu navegador no soporta video HTML5.
-          </video>
-        </div>
+<section class="mx-auto max-w-7xl px-4 pb-14">
+  <div class="sectionCard">
+    <div class="flex items-center justify-between flex-wrap gap-3">
+      <div>
+        <h2 class="secTitle">Conoce la Casa del Migrante en un vistazo</h2>
       </div>
-    </section>
+      <a class="badgeSoft badgeLink" href="galeria-videos.html">
+        Ver galería <i class="fa-solid fa-arrow-right"></i>
+      </a>
+    </div>
+
+    <!-- Esto es lo que modifiqué: ahora el video se carga desde YouTube -->
+    <div class="videoFrame mt-6">
+      <iframe
+        class="videoEl"
+        src="https://www.youtube.com/embed/10iAslXdG7k"
+        title="Casa del Migrante"
+        frameborder="0"
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+        allowfullscreen>
+      </iframe>
+    </div>
+
+  </div>
+</section>
 
     <!-- ✅ NUEVO: ATENCIONES BRINDADAS (2016–2025) -->
     <section class="mx-auto max-w-7xl px-4 pb-14">
@@ -348,7 +360,7 @@
             <i class="fa-brands fa-instagram"></i>
           </a>
 
-          <a href="https://wa.me/qr/4LLOEVB3HDWIJ1"
+          <a href="https://wa.me/529241790614?text=Hola%20quiero%20informacion%20sobre%20la%20Casa%20del%20Migrante"
              target="_blank"
              rel="noopener"
              aria-label="WhatsApp"
@@ -363,6 +375,39 @@
       </div>
     </div>
   </footer>
+
+  <!-- ✅ AGREGADO: acceso oculto al login con doble clic en el logo -->
+  <!-- ✅ AGREGADO: acceso oculto al login con doble clic en el logo -->
+<script>
+  (function () {
+    const logo = document.getElementById('secretLogo');
+    if (!logo) return;
+
+    let clickTimer = null;
+    let clickDelay = 250; // tiempo para detectar doble clic
+
+    logo.addEventListener('click', function (e) {
+      e.preventDefault(); // ✅ evita que el href navegue de inmediato
+
+      if (clickTimer !== null) {
+        // ✅ Segundo clic: era doble clic, cancelar ida a inicio
+        clearTimeout(clickTimer);
+        clickTimer = null;
+
+        // ✅ Ir al login oculto
+        window.location.href = "login.html";
+      } else {
+        // ✅ Primer clic: esperar por si viene el segundo
+        clickTimer = setTimeout(function () {
+          clickTimer = null;
+
+          // ✅ Si no hubo segundo clic, comportamiento normal
+          window.location.href = "index.html";
+        }, clickDelay);
+      }
+    });
+  })();
+</script>
 
   <script src="assets/js/carousel.js"></script>
   <script src="assets/js/stats-anim.js"></script>
