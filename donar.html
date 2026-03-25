@@ -28,6 +28,7 @@
 
   <!-- ===== CSS DONAR ===== -->
   <link rel="stylesheet" href="assets/css/Donar/donar.css">
+  <link rel="stylesheet" href="assets/css/Donar/video.css">
 </head>
 
 <body>
@@ -106,29 +107,28 @@
 
     <section class="mxWrap">
 
-      <!-- ===== VIDEO ===== -->
-      <div class="sectionCard">
-        <div class="donateHead">
-          <h2 class="secTitle" style="margin:0;">Mensaje institucional</h2>
-          <span class="badgeSoft"><i class="fa-solid fa-video"></i> Video</span>
-        </div>
+     <!-- ===== VIDEO ===== -->
+<div class="sectionCard">
+  <div class="donateHead">
+    <h2 class="secTitle" style="margin:0;">Conoce más sobre nuestra labor y el impacto de la solidaridad en Casa del Migrante. </h2>
+    <span class="badgeSoft"><i class="fa-solid fa-video"></i> Video</span>
+  </div>
 
-        <p class="secText" style="margin-top:8px; max-width: 78ch;">
-          Video de presentación (archivo local). Cuando lo tengas, reemplaza el <code>src</code> y listo.
-        </p>
+  <div class="videoFrame donateVideo">
+    <iframe
+      class="videoEl"
+      src="https://www.youtube.com/embed/V7y_mS-om8o"
+      title="Mensaje institucional - Casa del Migrante"
+      frameborder="0"
+      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+      allowfullscreen>
+    </iframe>
+  </div>
 
-        <div class="videoFrame donateVideo">
-          <video class="videoEl" controls preload="metadata">
-            <source src="assets/video/donar.mp4" type="video/mp4">
-            Tu navegador no soporta video HTML5.
-          </video>
-        </div>
-
-        <div class="smallNote" style="margin-top:12px;">
-          *Donación gestionada por PayPal.
-        </div>
-      </div>
-
+  <div class="smallNote" style="margin-top:12px;">
+    *Donación gestionada por PayPal.
+  </div>
+</div>
       <!-- ===== DONAR (FORM + RESUMEN) ===== -->
       <div class="donateShell mt-6">
 

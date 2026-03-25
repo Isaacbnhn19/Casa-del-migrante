@@ -5,6 +5,7 @@
    - Filter by month / date range
    - Export PDF (jsPDF + autoTable) with logo + footer note
    - Export Excel (.xls HTML) with logo + footer note
+   - Registro manual de donaciones
 ========================================================= */
 
 (() => {
@@ -28,6 +29,13 @@
   const applyFilterBtn = document.getElementById("applyFilterBtn");
   const clearFilterBtn = document.getElementById("clearFilterBtn");
 
+  const manualDonationForm = document.getElementById("manualDonationForm");
+  const manualName = document.getElementById("manualName");
+  const manualAmount = document.getElementById("manualAmount");
+  const manualMethod = document.getElementById("manualMethod");
+  const manualStatus = document.getElementById("manualStatus");
+  const manualSubmitBtn = document.getElementById("manualSubmitBtn");
+
   let allDonations = [];
   let filteredDonations = [];
 
@@ -45,8 +53,13 @@
     if (statusEl) statusEl.textContent = msg || "";
   }
 
+  function setManualStatus(msg, isError = false){
+    if (!manualStatus) return;
+    manualStatus.textContent = msg || "";
+    manualStatus.style.color = isError ? "#b42318" : "#173052";
+  }
+
   function parseDateSafe(val){
-    // Backend puede mandar string tipo ISO o timestamp; esto intenta convertirlo a Date
     const d = new Date(val);
     return isNaN(d.getTime()) ? null : d;
   }
@@ -128,13 +141,11 @@
       const dd = parseDateSafe(d.created_at) || parseDateSafe(d.createdAt) || null;
       if (!dd) return true;
 
-      // mes
       if (monthVal !== "all"){
         const m = Number(monthVal);
         if (dd.getMonth() !== m) return false;
       }
 
-      // rango
       if (fromD && dd < fromD) return false;
       if (toD && dd > toD) return false;
 
@@ -174,8 +185,54 @@
     }
   }
 
+  async function registerManualDonation(e){
+    e.preventDefault();
+
+    const name = String(manualName?.value || "").trim();
+    const amount = Number(manualAmount?.value || 0);
+    const payment_method = String(manualMethod?.value || "").trim();
+
+    if (!name || !amount || amount <= 0 || !payment_method){
+      setManualStatus("Completa correctamente los campos.", true);
+      return;
+    }
+
+    try{
+      if (manualSubmitBtn) manualSubmitBtn.disabled = true;
+      setManualStatus("Guardando donación manual...");
+
+      const res = await fetch("/api/donations/manual", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json"
+        },
+        body: JSON.stringify({
+          name,
+          amount,
+          payment_method
+        })
+      });
+
+      const data = await res.json().catch(() => ({}));
+
+      if (!res.ok){
+        throw new Error(data?.error || "No se pudo registrar la donación manual.");
+      }
+
+      setManualStatus("✅ Donación manual registrada correctamente.");
+      if (manualDonationForm) manualDonationForm.reset();
+      if (manualMethod) manualMethod.value = "transferencia";
+
+      await loadStats();
+      await loadDonations();
+    }catch(err){
+      setManualStatus(`❌ ${err.message || "Error al registrar la donación manual."}`, true);
+    }finally{
+      if (manualSubmitBtn) manualSubmitBtn.disabled = false;
+    }
+  }
+
   async function fetchLogoDataURL(){
-    // Convierte assets/img/logo.png en base64 para incrustar en PDF/Excel
     try{
       const res = await fetch("assets/img/logo.png");
       const blob = await res.blob();
@@ -204,7 +261,6 @@
     const marginX = 40;
     let y = 40;
 
-    // Header con logo
     if (logoData){
       doc.addImage(logoData, "PNG", marginX, y, 46, 46);
     }
@@ -247,7 +303,6 @@
       margin: { left: marginX, right: marginX },
     });
 
-    // Footer
     const pageCount = doc.getNumberOfPages();
     for (let i = 1; i <= pageCount; i++){
       doc.setPage(i);
@@ -276,7 +331,7 @@
       return;
     }
 
-    const logoData = await fetchLogoDataURL(); // base64 (si falla, solo no sale el logo)
+    const logoData = await fetchLogoDataURL();
 
     const head = `
       <tr>
@@ -306,7 +361,6 @@
 
     const now = new Date().toLocaleString("es-MX");
 
-    // XLS HTML: Excel lo abre y respeta estilos básicos + logo (si base64 disponible)
     const html = `
       <html>
       <head>
@@ -358,7 +412,6 @@
     a.remove();
   }
 
-  // Eventos
   refreshBtn?.addEventListener("click", async () => {
     await loadStats();
     await loadDonations();
@@ -375,16 +428,13 @@
   exportPdfBtn?.addEventListener("click", exportPDF);
   exportXlsBtn?.addEventListener("click", exportExcelXLS);
 
-  // Init
+  manualDonationForm?.addEventListener("submit", registerManualDonation);
+
   (async () => {
     const ok = await requireAuth();
     if (!ok) return;
 
     await loadStats();
     await loadDonations();
-
-    // Sugerencia: por si quieres “mes actual” por default, descomenta:
-    // if (monthFilter) monthFilter.value = String(new Date().getMonth());
-    // applyFilter();
   })();
 })();
