@@ -1,0 +1,8 @@
+{
+  "name": "casa-del-migrante-root",
+  "private": true,
+  "scripts": {
+    "build": "npm install --prefix server",
+    "start": "node server/server.js"
+  }
+}
