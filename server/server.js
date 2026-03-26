@@ -215,8 +215,8 @@ app.post("/api/donations/manual", requireAuth, async (req, res) => {
   }
 });
 
-// Fallback
-app.get("/", (_req, res) => {
+// 🔥 FORZAR INDEX EN PRODUCCIÓN
+app.get("*", (req, res) => {
   res.sendFile(path.join(WEB_ROOT, "index.html"));
 });
 
