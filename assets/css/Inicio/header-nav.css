@@ -285,4 +285,113 @@
   background: linear-gradient(135deg, rgba(173,132,227,1), rgba(179,204,246,1));
 }
 
+/* ===== Botón hamburguesa ===== */
+.menuToggle{
+  display: none;
+  width: 46px;
+  height: 46px;
+  border: none;
+  border-radius: 12px;
+  background: #bca7ee;
+  cursor: pointer;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  gap: 5px;
+  margin-left: auto;
+}
+
+.menuToggle span{
+  display: block;
+  width: 22px;
+  height: 2.5px;
+  background: #1f2b57;
+  border-radius: 999px;
+}
+
+/* ===== Móvil ===== */
+@media (max-width: 900px){
+
+  .siteHeaderBar .headerBarInner{
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    padding: 12px 16px;
+    position: relative;
+  }
+
+  .menuToggle{
+    display: inline-flex;
+  }
+
+  .navMain{
+    display: none;
+    width: 100%;
+    position: absolute;
+    top: calc(100% + 8px);
+    left: 0;
+    padding: 0 16px 16px;
+    z-index: 999;
+  }
+
+  .navMain.isOpen{
+    display: block;
+  }
+
+  .navList{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    width: 100%;
+    background: #f7f4fc;
+    border: 1px solid rgba(160, 140, 220, 0.18);
+    border-radius: 18px;
+    padding: 14px;
+    box-shadow: 0 12px 30px rgba(25, 25, 60, 0.08);
+  }
+
+  .navItem{
+    width: 100%;
+  }
+
+  .navLink{
+    display: block;
+    width: 100%;
+    text-align: left;
+    padding: 14px 16px;
+    border-radius: 14px;
+    background: #ffffff;
+  }
+
+  .navLinkStrong{
+    background: #bca7ee;
+  }
+
+  .hasDrop .navDrop{
+    display: none;
+    position: static;
+    opacity: 1;
+    visibility: visible;
+    transform: none;
+    box-shadow: none;
+    border: none;
+    background: transparent;
+    min-width: 100%;
+    margin-top: 8px;
+    padding: 0 0 0 10px;
+  }
+
+  .hasDrop.open .navDrop{
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  .hasDrop .navDrop a{
+    display: block;
+    background: #ffffff;
+    border-radius: 12px;
+    padding: 12px 14px;
+  }
+}
 
