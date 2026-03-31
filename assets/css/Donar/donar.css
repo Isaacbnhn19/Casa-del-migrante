@@ -20,7 +20,7 @@
 }
 
 /* =========================
-   VIDEO (compacto y sin huecos)
+   VIDEO (PC + móvil correcto)
 ========================= */
 .donateVideo{
   border-radius: 18px;
@@ -28,13 +28,11 @@
   border: 1px solid rgba(26, 56, 110, .12);
   background: rgba(255,255,255,.72);
   box-shadow: 0 14px 35px rgba(20, 36, 70, .08);
+
   aspect-ratio: 16 / 9;
-  height: auto;
-  max-width: 900px;
+  width: 100%;
+  max-width: 900px; /* 👈 mantiene tamaño en PC */
   margin: 0 auto;
-}
-@media (max-width: 700px){
-  .donateVideo{ height: 200px; }
 }
 
 .videoEl{
@@ -42,6 +40,16 @@
   height: 100%;
   display: block;
   border: 0;
+}
+
+/* 👇 SOLO arreglamos móvil */
+@media (max-width: 700px){
+  .donateVideo{
+    max-width: 100%;   /* 👈 ocupa todo el ancho del celular */
+    width: 100%;
+    margin: 0;
+    border-radius: 16px;
+  }
 }
 /* Shell: Form + Resumen */
 .donateShell{
