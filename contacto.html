@@ -24,12 +24,13 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@500;700;800;900&family=Playfair+Display:wght@600;700;800&family=Poppins:wght@600;700;800&display=swap" rel="stylesheet">
-
+  
   <!-- Layout/tipografías reutilizadas -->
   <link rel="stylesheet" href="assets/css/Historia/historia.css">
 
   <!-- ===== CSS ESPECÍFICO CONTACTO ===== -->
   <link rel="stylesheet" href="assets/css/Contacto/contacto.css">
+  <script src="assets/js/menu-mobile.js"></script>
 </head>
 
 <body>
@@ -48,10 +49,17 @@
   </div>
 
   <!-- ===== BARRA STICKY (sin login) ===== -->
-  <header class="siteHeaderBar">
-    <div class="headerInner">
-      <nav class="navMain" aria-label="Navegación principal">
-        <ul class="navList">
+  <header class="siteHeader siteHeaderBar">
+  <div class="headerInner headerBarInner">
+
+    <button class="menuToggle" id="menuToggle" aria-label="Abrir menú" aria-expanded="false">
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+
+    <nav class="navMain" id="navMain" aria-label="Navegación principal">
+      <ul class="navList">
 
           <!-- CONÓCENOS -->
           <li class="navItem hasDrop">

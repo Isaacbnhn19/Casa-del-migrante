@@ -30,6 +30,7 @@
 
   <!-- ===== CSS ESPECÍFICO VOLUNTARIADO ===== -->
   <link rel="stylesheet" href="assets/css/Ayudanos/voluntariado.css">
+  <script src="assets/js/menu-mobile.js"></script>
 </head>
 
 <body>
@@ -48,11 +49,17 @@
   </div>
 
   <!-- ===== BARRA STICKY (sin login) ===== -->
-  <header class="siteHeaderBar">
-    <div class="headerInner">
+  <header class="siteHeader siteHeaderBar">
+  <div class="headerInner headerBarInner">
 
-      <nav class="navMain" aria-label="Navegación principal">
-        <ul class="navList">
+    <button class="menuToggle" id="menuToggle" aria-label="Abrir menú" aria-expanded="false">
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+
+    <nav class="navMain" id="navMain" aria-label="Navegación principal">
+      <ul class="navList">
 
           <!-- CONÓCENOS -->
           <li class="navItem hasDrop">
@@ -262,11 +269,6 @@
 
           <figure class="vM vC">
             <img src="assets/img/voluntariado/vol-3.jpeg" alt="Voluntariado - foto 3 (ejemplo)">
-          </figure>
-
-          <figure class="vM vD">
-            <img src="assets/img/voluntariado/vol-4.jpeg" alt="Voluntariado - foto 4 (ejemplo)">
-            <figcaption>Trabajo en equipo (ejemplo)</figcaption>
           </figure>
         </div>
 

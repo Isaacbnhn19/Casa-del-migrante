@@ -32,6 +32,7 @@
 
   <!-- ===== CSS ESPECÍFICO HISTORIA (NUEVO) ===== -->
   <link rel="stylesheet" href="assets/css/Historia/historia2.css">
+  <script src="assets/js/menu-mobile.js"></script>
 </head>
 
 <body>
@@ -50,10 +51,18 @@
   </div>
 
   <!-- ===== BARRA STICKY (igual al inicio, SIN botón login) ===== -->
-  <header class="siteHeaderBar">
-    <div class="headerInner">
-      <nav class="navMain" aria-label="Navegación principal">
-        <ul class="navList">
+  <header class="siteHeader siteHeaderBar">
+  <div class="headerInner headerBarInner">
+
+    <button class="menuToggle" id="menuToggle" aria-label="Abrir menú" aria-expanded="false">
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+
+    <nav class="navMain" id="navMain" aria-label="Navegación principal">
+      <ul class="navList">
+
           <li class="navItem hasDrop">
             <a class="navLink" href="#" aria-haspopup="true">Conócenos</a>
             <div class="navDrop" role="menu" aria-label="Submenú Conócenos">

@@ -30,6 +30,8 @@
 
   <!-- ===== CSS ESPECÍFICO DE ESTA PÁGINA ===== -->
   <link rel="stylesheet" href="assets/css/Ayudanos/participacion-solidaria.css">
+  <script src="assets/js/menu-mobile.js"></script>
+
 </head>
 
 <body>
@@ -48,11 +50,17 @@
   </div>
 
   <!-- ===== BARRA STICKY (sin login) ===== -->
-  <header class="siteHeaderBar">
-    <div class="headerInner">
+  <header class="siteHeader siteHeaderBar">
+  <div class="headerInner headerBarInner">
 
-      <nav class="navMain" aria-label="Navegación principal">
-        <ul class="navList">
+    <button class="menuToggle" id="menuToggle" aria-label="Abrir menú" aria-expanded="false">
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+
+    <nav class="navMain" id="navMain" aria-label="Navegación principal">
+      <ul class="navList">
 
           <!-- CONÓCENOS -->
           <li class="navItem hasDrop">
@@ -150,11 +158,6 @@
           <figure class="mItem mC">
             <img src="assets/img/participacion/concientizacion-3.jpg" alt="Jornada de diálogo - Casa Ranzahuer">
             <figcaption>Inclusión</figcaption>
-          </figure>
-
-          <figure class="mItem mD">
-            <img src="assets/img/participacion/concientizacion-4.jpg" alt="Material informativo - Casa Ranzahuer">
-            <figcaption>Información veraz (ejemplo)</figcaption>
           </figure>
         </div>
       </div>
